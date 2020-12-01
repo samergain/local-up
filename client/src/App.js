@@ -1,24 +1,20 @@
-// import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Profile from "../src/components/client-portal/pages/Profile";
+import ActiveTicket from "./components/client-portal/pages/ActiveTicket";
+import Contact from "./components/client-portal/pages/Contacts";
+import CreateTicket from "./components/client-portal/pages/CreateTicket";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/create-tickets" component={CreateTicket} />
+        <Route exact path="/active-tickets" component={ActiveTicket} />
+        <Route exact path="/contacts" component={Contact} />
+      </div>
+    </Router>
   );
 }
 
