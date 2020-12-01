@@ -24,6 +24,14 @@ const User = mongoose.model(
     tasks: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Task"
+    }],
+    blogs: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Blog"
+    }],
+    tickets: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Ticket"
     }]
   })
 );

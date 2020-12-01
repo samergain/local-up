@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-const Task = mongoose.model(
-  "Task",
+const Blog = mongoose.model(
+  "Blog",
   new mongoose.Schema({
     title: String,
     description: String
   })
 );
 
-module.exports = Task;
+module.exports = Blog;

@@ -13,7 +13,11 @@ const Project = mongoose.model(
     tasks: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Task"
-    }]
+    }],
+    ticket: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Ticket"
+  }]
   })
 );
 
