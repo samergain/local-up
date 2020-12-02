@@ -1,0 +1,57 @@
+[
+    {
+      "username": "test1.test@gmail.com",
+      "email": "test.test@gmail.com",
+      "password": "testpassword",
+      "name": "FirstName LastName",
+      "company": "Idli Dosai International Market",
+      "contact": "777-888-1234",
+      "roles": "client123",
+      "projects": [],
+      "tickets" : ["tkt11", "tkt12", "tkt13"]
+    },
+    {
+        "username": "test2.test@gmail.com",
+        "email": "test2.test@gmail.com",
+        "password": "test2password",
+        "name": "FirstName2 LastName2",
+        "company": "Pop & Mom Store",
+        "contact": "777-888-1000",
+        "roles": "client345",
+        "projects": ["proj21"],
+        "tickets" : ["tkt21", "tkt22", "tkt23"]
+    },
+    {
+        "username": "test3.test@gmail.com",
+        "email": "test3.test@gmail.com",
+        "password": "test3password",
+        "name": "FirstName3 LastName3",
+        "company": "Hole in Wall",
+        "contact": "111-222-4321",
+        "roles": "client567",
+        "projects": ["proj31", "proj32"],
+        "tickets" : ["tkt31", "tkt32", "tkt33"]
+      },
+      {
+        "username": "test4.test@gmail.com",
+        "email": "test4.test@gmail.com",
+        "password": "test4password",
+        "name": "FirstName4 LastName4",
+        "company": "Your Corner Store",
+        "contact": "777-856-2200",
+        "roles": "client350",
+        "projects": ["proj41","proj42"],
+        "tickets" : ["tkt41", "tkt42", "tkt43", "tkt44"]
+    },
+    {
+        "username": "test5.test@gmail.com",
+        "email": "test5.test@gmail.com",
+        "password": "test5password",
+        "name": "FirstName5 LastName5",
+        "company": "Hole in Wall in MN",
+        "contact": "111-552-6321",
+        "roles": "client600",
+        "projects": ["proj51", "proj52","proj53","proj54"],
+        "tickets" : ["tkt51", "tkt52", "tkt53", "tkt54"]
+      }
+]

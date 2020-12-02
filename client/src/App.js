@@ -1,24 +1,31 @@
-// import logo from './logo.svg';
+import { React } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NavigationBar from "../src/components/AdminPortal/NavigationBar/NavigationBar";
+import Jumbotron from "../src/components/AdminPortal/Jumbotron/Jumbotron";
+import AdminClients from "./pages/AdminClients";
+import AdminProjects from "./pages/AdminProjects";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // Dynamic client-side routing, allows to build a single-page web application with navigation without the page regreshing as the user navigates.
+    <Router>
+      <div>
+        <NavigationBar />
+        <Jumbotron />
+        <Switch>
+          <Route exact path={["/", "/clients"]}>
+            <AdminClients />
+          </Route>
+          <Route exact path="/projects">
+            <AdminProjects />
+          </Route>
+          {/* <Route>
+            <NoMatch />
+          </Route> */}
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
