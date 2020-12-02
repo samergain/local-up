@@ -6,7 +6,9 @@ const Project = mongoose.model(
     title: String,
     description: String,
     githubRepo: String,
-    users: [{
+    createdBy: String,
+    status: String,
+    assignedUsers: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     }],

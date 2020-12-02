@@ -4,7 +4,8 @@ const Ticket = mongoose.model(
   "Ticket",
   new mongoose.Schema({
     title: String,
-    description: String
+    description: String,
+    status: String
   })
 );
 
