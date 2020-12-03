@@ -1,7 +1,7 @@
 [
     {
       "username": "test1.test@gmail.com",
-      "email": "test.test@gmail.com",
+      "email": "test.testhfghfghf@gmail.com",
       "password": "testpassword",
       "name": "FirstName LastName",
       "company": "Idli Dosai International Market",
@@ -12,7 +12,7 @@
     },
     {
         "username": "test2.test@gmail.com",
-        "email": "test2.test@gmail.com",
+        "email": "test2.testhfghfghfghf@gmail.com",
         "password": "test2password",
         "name": "FirstName2 LastName2",
         "company": "Pop & Mom Store",
@@ -23,7 +23,7 @@
     },
     {
         "username": "test3.test@gmail.com",
-        "email": "test3.test@gmail.com",
+        "email": "test3.testfhgfghfghfghfhfg@gmail.com",
         "password": "test3password",
         "name": "FirstName3 LastName3",
         "company": "Hole in Wall",
@@ -34,7 +34,7 @@
       },
       {
         "username": "test4.test@gmail.com",
-        "email": "test4.test@gmail.com",
+        "email": "test4gdghfghfghfgh.test@gmail.com",
         "password": "test4password",
         "name": "FirstName4 LastName4",
         "company": "Your Corner Store",
@@ -45,7 +45,7 @@
     },
     {
         "username": "test5.test@gmail.com",
-        "email": "test5.test@gmail.com",
+        "email": "test5dgdhgfghfghfg.test@gmail.com",
         "password": "test5password",
         "name": "FirstName5 LastName5",
         "company": "Shamelessly Nameless",

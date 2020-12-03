@@ -14,7 +14,7 @@ export function ClientCard(props) {
 
 export function ClientCardBody(props) {
 
-    console.log("PROPS from CArd: ", props);
+    console.log("PROPS from Card: ", props);
 
     return (
         <div>

@@ -3,6 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 // import {Link} from "react-router-dom";
 import { ClientCard, ClientCardBody } from "../components/AdminPortal/ClientsCard/ClientsCard";
 import TicketList from "../components/AdminPortal/TicketList/TicketList";
+import ProjectButton from "../components/AdminPortal/ProjectButton/ProjectButton";
+// import {Input, TextArea, FormBtn} from "../components/AdminPortal/Form";
 import clients from "../data/clients.json";
 import tickets from "../data/tickets.json";
 
@@ -78,6 +80,36 @@ function AdminClients() {
         })
     }
 
+    // [project, setProject] = useState(false);
+
+
+    // function createProjectForm(event, ticket){
+    //     console.log("create Project Form: ", ticket);
+    //     setProject(true);
+    // };
+
+    // const [projectForm, setProjectForm] = useState({
+    //     title: "",
+    //     description: "",
+    //     githubRepo: "",
+    //     createdBy: "",
+    //     status : "",
+    //     assignedUsers: [],
+    //     tasks: [],
+    //     ticket: []
+    // })
+    // function handleInputChange(event){
+    //     const { name, value } = event.target;
+    //     setProjectForm({...projectForm, [name]: value})
+    // };
+
+    // function handleFormSubmit(event){
+    //     event.preventDefault();
+    //     if (projectForm.title && assignedUsers[0]) {
+    //         console.log("Saving Form: ", projectForm);
+    //     }
+    // };
+
     return (
         <div>
             <Container>
@@ -128,7 +160,7 @@ function AdminClients() {
                                     {(clientProfile.tickets.length) ?
                                         (
                                             <div className="card-body">
-                                                <h6>Tickets:</h6>
+                                                <h6 className="text-center">Tickets:</h6>
                                                 
                                                     {clientProfile.tickets.map(ticket =>
                                                          <TicketList
@@ -165,18 +197,66 @@ function AdminClients() {
                                     <p>
                                         <strong>Id:</strong>{ticketInfo.id}<br />
                                         <strong>Type:</strong> {ticketInfo.type}<br />
-                                        <strong>Description:</strong>{ticketInfo.description}<br />
+                                        <strong>Description:</strong>{ticketInfo.description}
                                     </p>
-                                    <hr />
                                     <div className="card-body">
+                                        {/* <ProjectButton 
+                                        tktId={ticketInfo.id}
+                                        tktType={ticketInfo.type}
+                                        tktDesc={ticketInfo.description}
+                                        clickFunction={createProjectForm}
+                                        /> */}
                                     <button className="btn btn-danger">
                                         Create Project
                                     </button>
-                                </div>
+                                    </div>
                      </div>
                      ):
                      (<></>)
                      }
+                    </Col>
+                    <Col xs={3} lg={3}>
+
+                        {/* {(project) ?
+                            (
+                                <div className="card">
+                                    <div className="card-header mr-auto">
+                                        <h2>{ticketInfo.title}</h2>
+                                    </div>
+                                    <div className="card-body">
+                                        <form>
+                                            <Input 
+                                            onChange={handleInputChange}
+                                            name="title"
+                                            placeholder="Title (required)"
+                                            value={projectForm.title}
+                                            />
+                                            <Input
+                                            onChange={handleInputChange}
+                                            name="description"
+                                            placeholder="Description (required)"
+                                            value={projectForm.description}
+                                            />
+                                            <Input
+                                            onChange={handleInputChange}
+                                            name="githubRepo"
+                                            placeholder="GitHubRepo (required)"
+                                            value={projectForm.githubRepo}
+                                            />
+                                            <Input
+                                            onChange={handleInputChange}
+                                            name="createdBy"
+                                            placeholder="Created By (required)"
+                                            value={projectForm.createdBy}
+                                            />
+                                            <Input
+                                            onChange={handleInputChange}
+                                            name="status"
+                                            placeholder="Status"
+                                </div>
+                            </div>):
+                     (<></>)
+                     } */}
                     </Col>
                 </Row>
             </Container>
