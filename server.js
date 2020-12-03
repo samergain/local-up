@@ -3,7 +3,7 @@ const express = require("express");
 // const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 
 // This application level middleware prints incoming requests to the servers console, useful to see incoming requests
