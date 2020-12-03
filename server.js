@@ -9,6 +9,7 @@ let corsOptions = {
   origin: "http://localhost:8081"  //maybe change it to 3000 to match react??
 };
 
+
 app.use(cors(corsOptions));
 
 // This application level middleware prints incoming requests to the servers console, useful to see incoming requests
