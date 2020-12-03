@@ -14,12 +14,12 @@ function NavBar() {
           <Nav className="mr-auto justify-content-end">
             <Nav.Link href="/search"></Nav.Link>
             <Nav.Link href="/logout">Logout</Nav.Link>
-            <NavDropdown title="Menu" id="basic-nav-dropdown" className="d-none ">
-          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown title="Menu" id="basic-nav-dropdown" className="d-sm-none ">
+          <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+          <NavDropdown.Item href="/create-tickets">Create a Ticket</NavDropdown.Item>
+          <NavDropdown.Item href="/active-tickets">Active Tickets</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+          <NavDropdown.Item href="/contacts">Contacts</NavDropdown.Item>
         </NavDropdown>
           </Nav>
         </Navbar.Collapse>

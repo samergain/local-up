@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../NavBar";
 import { Nav, Col, Container, Row } from "react-bootstrap";
 
@@ -9,7 +9,7 @@ function Profile() {
       <Container fluid>
         <Row>
           <Col xs={2}>
-            <Nav className="col-md-12 d-none d-md-block bg-default sidebar justify-content-left">
+            <Nav className="col-md-12 d-sm-block bg-default sidebar justify-content-left">
               <div className="sidebar-sticky"></div>
               <Nav.Item>
                 <Nav.Link href="/profile">Profile</Nav.Link>
@@ -26,7 +26,8 @@ function Profile() {
             </Nav>
           </Col>
           <Col xs={10}>
-            <p>Hello</p>
+            <p>Hello User</p>
+
           </Col>
         </Row>
       </Container>

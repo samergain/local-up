@@ -26,7 +26,7 @@ return (
         </Nav>
         </Col>
         <Col xs={10}>
-            <p>Hello</p>
+            <p>Contact Page</p>
         </Col>
     </Row>
 </Container>
