@@ -1,9 +1,9 @@
 import React from "react";
-import "./Card.css";
-import ClientProfile from "../ClientProfile/ClientProfile";
+import "./ClientsCard.css";
 
-export function Card(props) {
-    console.log("Card PROPS: ", props);
+
+export function ClientCard(props) {
+
     return (
         <div className="card-header mr-auto">
             <h2 className="text-center">{props.cardHeader}</h2>
@@ -12,17 +12,9 @@ export function Card(props) {
     )
 }
 
-export function CardBody(props) {
-    console.log("CardBody", props);
+export function ClientCardBody(props) {
 
-
-    function displayClientDtl(props){
-        console.log("client clicked: ", props);
-
-        return (
-            <ClientProfile />
-        )
-    }
+    console.log("PROPS from CArd: ", props);
 
     return (
         <div>
@@ -35,11 +27,14 @@ export function CardBody(props) {
                     contact={props.contact}
                     tickets={props.tickets}
                     className="btn btn-danger"
-                    onClick={()=> displayClientDtl(props)}
+                    value={props.client}
+                    onClick={(e, client=props.client) => props.clickFunction(e, client)}
                 >
                     {props.company}
                 </button>
             </div>
         </div>
+        
+      
     )
 }
