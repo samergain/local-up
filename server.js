@@ -1,10 +1,16 @@
 const express = require("express");
-
-// const mongoose = require("mongoose");
+const cors = require("cors");
+const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 
+let corsOptions = {
+  origin: "http://localhost:8081"  //maybe change it to 3000 to match react??
+};
+
+
+app.use(cors(corsOptions));
 
 // This application level middleware prints incoming requests to the servers console, useful to see incoming requests
 app.use((req, res, next) => {
@@ -20,10 +26,28 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Add routes, both API and view
+
+require('./routes/api/auth.routes')(app);
+require('./routes/api/user.routes')(app);
 app.use(routes);
+//added from tutorial to be checked
+//const db = require("./app/models");
 
 // Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/localupDB",
+          {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true,
+            useFindAndModify: false
+          })
+          .then(() => {
+            console.log("Successfully connect to MongoDB.");
+          })
+          .catch(err => {
+            console.error("Connection error", err);
+            process.exit();
+          });
 
 // Start the API server
 app.listen(PORT, function() {
