@@ -26,7 +26,7 @@ export function ClientCardBody(props) {
                     email={props.email}
                     contact={props.contact}
                     tickets={props.tickets}
-                    className="btn btn-danger"
+                    className="btn btn-primary"
                     value={props.client}
                     onClick={(e, client=props.client) => props.clickFunction(e, client)}
                 >
