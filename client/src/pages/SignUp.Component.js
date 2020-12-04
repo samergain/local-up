@@ -23,7 +23,7 @@ export default class SignUp extends Component {
 
                 <div className="form-group">
                     <label>Organization</label>
-                    <input type="email" className="form-control" placeholder="Enter Organization" />
+                    <input type="text" className="form-control" placeholder="Enter Organization" />
                 </div>
 
                 <div className="form-group">
