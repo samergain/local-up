@@ -6,7 +6,7 @@ function ProjectButton(props){
 
     return(
         <div>
-            <button className="btn btn-primary mb-3"
+            <button className="btn btn-primary mb-3 btn-size"
              onClick={(e, ticket=props.ticket) => props.clickFunction(e, ticket)}>
                 Create Project
             </button>
