@@ -212,7 +212,7 @@ function AdminClients() {
                                         tktDesc={ticketInfo.description}
                                         clickFunction={createProjectForm}
                                         /> */}
-                                        <button className="btn btn-secondary">
+                                        <button className="btn btn-primary">
                                             Create Project
                                     </button>
                                     </div>
