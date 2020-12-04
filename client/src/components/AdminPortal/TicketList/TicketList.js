@@ -6,7 +6,7 @@ function TicketList(props){
     console.log("Printing from TicketList.");
     return (
         <div>
-            <button className="btn btn-danger mb-3"
+            <button className="btn btn-primary mb-3"
             onClick={(e, ticket=props.ticket) => props.clickFunction(e, ticket)}
             >
             {props.ticket}

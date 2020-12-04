@@ -7,6 +7,8 @@ import ProjectButton from "../components/AdminPortal/ProjectButton/ProjectButton
 // import {Input, TextArea, FormBtn} from "../components/AdminPortal/Form";
 import clients from "../data/clients.json";
 import tickets from "../data/tickets.json";
+import NavigationBar from "../components/AdminPortal/NavigationBar/NavigationBar";
+import NavSideBar from "../components/AdminPortal/NavSideBar/NavSideBar";
 
 
 function AdminClients() {
@@ -38,7 +40,7 @@ function AdminClients() {
     });
 
     function displayClientDtl(event, client) {
-    
+
         setTicketInfo({
             id: "",
             title: "",
@@ -112,8 +114,12 @@ function AdminClients() {
 
     return (
         <div>
-            <Container>
-                <Row className="show-grid">
+            <NavigationBar />
+            <Container fluid>
+            <Row className="show-grid">
+                <Col xs={2}>
+                    <NavSideBar />
+                </Col>
                     <Col xs={3} lg={3}>
                         {!clients.length ? (
                             <h1 className="text-center">No Clients to Display</h1>
@@ -161,18 +167,18 @@ function AdminClients() {
                                         (
                                             <div className="card-body">
                                                 <h6 className="text-center">Tickets:</h6>
-                                                
-                                                    {clientProfile.tickets.map(ticket =>
-                                                         <TicketList
-                                                            id={ticket}
-                                                            ticket={ticket}
-                                                            key={ticket}
-                                                            clickFunction={getTicketInfo}
-        
-                                                        />
-                                                    )
-                                                    }
-                                                
+
+                                                {clientProfile.tickets.map(ticket =>
+                                                    <TicketList
+                                                        id={ticket}
+                                                        ticket={ticket}
+                                                        key={ticket}
+                                                        clickFunction={getTicketInfo}
+
+                                                    />
+                                                )
+                                                }
+
                                             </div>
                                         ) :
                                         (
@@ -206,14 +212,14 @@ function AdminClients() {
                                         tktDesc={ticketInfo.description}
                                         clickFunction={createProjectForm}
                                         /> */}
-                                    <button className="btn btn-danger">
-                                        Create Project
+                                        <button className="btn btn-secondary">
+                                            Create Project
                                     </button>
                                     </div>
-                     </div>
-                     ):
-                     (<></>)
-                     }
+                                </div>
+                            ) :
+                            (<></>)
+                        }
                     </Col>
                     <Col xs={3} lg={3}>
 

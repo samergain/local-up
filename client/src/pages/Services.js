@@ -1,7 +1,9 @@
-import React, { Component } from "react";
-export default class Services extends Component {
-    render() {
+import React from "react";
+import NavBar from "../components/HomePortal/NavBar/NavBar";
+function Services() {
         return (
+            <div>
+                <NavBar/>
             <form>
                 <h3>Services</h3>
 
@@ -13,6 +15,8 @@ consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor
                     </p> 
                 </div>
             </form>
+            </div>
         );
-    }
 }
+
+export default Services;
