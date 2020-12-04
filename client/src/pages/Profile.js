@@ -5,54 +5,66 @@ import { Col, Container, Row } from "react-bootstrap";
 import clientUser from "../data/clients.json";
 
 function Profile() {
-
   const [clientProfile, setClientProfile] = useState({
-    id: "1",
+    id: "",
     name: "",
-    company: "company",
-    email: "a@a.com",
-    contact: "Sam",
+    company: "",
+    email: "",
+    contact: "",
     tickets: [],
   });
 
-    const [clients, setClients] = useState([]);
+  const [clients, setClients] = useState([]);
 
   useEffect(() => {
-      loadClients()
-  }, [])
+    loadClientProfile();
+  }, []);
 
-   function loadClients() {
-      console.log("API call to get all Clients");
-      console.log(clientUser);
-      setClients(clientUser);
-      // API.getAllClients()
-      // .then(res => {
-      //     setClients(res.data);
-      // })
-      // .catch(err => console.log(err));
-  }
+  function loadClientProfile() {
+    console.log("API call to get all Clients");
+    console.log(clientUser);
 
-
-
-  function displayClientDtl(event, client) {
-
+    //1. get the logged in user from LocalStorage
+    //2. Get the json file, filter only the user that is logged in, id or role
+    // and save into new var
+    //3. setclientProfile(....)
+    
+const currUserID = "test1";
+    let matchedUser = clientUser.filter(
+      (currUser) => currUser.id === currUserID
+    );
+ console.log(matchedUser);
     setClientProfile({
-      id: client.id,
-      name: client.name,
-      company: client.company,
-      email: client.email,
-      contact: client.contact,
-      tickets: client.tickets,
+      id: matchedUser.id,
+      name: matchedUser.name,
+      company: matchedUser.company,
+      email: matchedUser.email,
+      contact: matchedUser.contact,
+      tickets: matchedUser.tickets,
     });
+
+    // setClients(clientUser);
+
+
+
+
+    // API.getAllClients()
+    // .then(res => {
+    //     setClients(res.data);
+    // })
+    // .catch(err => console.log(err));
   }
 
-  // function getCurrentUser(id){
-  //   // let getUser = clients.filter(currUser => if (currUser.username ==id) return currUser);
-  //   //family.filter(person => person.age > 18);
-   
-  //   //set that to clientProfile
-  // }
+  // function getCurrentUser(id) {
+  //   //   // let getUser = clients.filter(currUser => if (currUser.username ==id) return currUser);
+  //   let getUser = clientUser.filter(
+  //     (currUser) => currUser.id === clientUser[0].id
+  //   );
+  //   console.log(getUser);
 
+  //   //   //set that to clientProfile
+  // }
+  // getCurrentUser();
 
   return (
     <div>
@@ -60,92 +72,29 @@ function Profile() {
       <Container fluid>
         <Row>
           <Col xs={2}>
-            <NavSideBar/>
+            <NavSideBar />
           </Col>
-          <Col xs={6}>
-            {clientUser[0].name}
-          {clientUser.id !== "" ? (
-              <div className="card mt-5">
-                <div className="card-header">
-                  <h2 className="text-center">{clientUser[0].name}</h2>
-                  <ul class="list-group">
-                  <li class="list-group-item text-center"> <strong className="text-left">Company: </strong>
-                  {clientProfile.company}</li>
-                  <li class="list-group-item text-center"><strong  className="text-left">Email: </strong> {clientUser.email}</li>
-                  <li class="list-group-item text-center"><strong className="text-left" >Contacts: </strong>
-                  {clientUser.contacts}</li>
-                </ul>
-                 {/*
+          <Col xs={3} lg={3}>
+            {clientProfile.id !== "" ? (
+              <div className="card-deck">
+                <div className="card-header mr-auto">
+                  <h2>{clientProfile.company}</h2>
                 </div>
-               
-               
-                <div className="justify-content-center">
-                  <p className=" pl-3 pt-2 ">
-                  <strong className="text-left">Company:</strong>
-                  {clientProfile.company}
+                <p>
+                  <strong>Contact:</strong> {clientProfile.name}
                   <br />
-                  <strong  className="text-left">Email:</strong> {clientProfile.email}
+                  <strong>Email:</strong>
+                  {clientProfile.email}
                   <br />
-                  <strong className="text-left" >Contacts:</strong>
-                  {clientProfile.contacts}
-                </p></div>
-                
-                <div className="card-body">
-                   <ProjectButton 
-                                        tktId={ticketInfo.id}
-                                        tktType={ticketInfo.type}
-                                        tktDesc={ticketInfo.description}
-                                        clickFunction={createProjectForm}
-                                        /> */}
-                  <button className="btn btn-primary">Create Project</button>
+                  <strong>Phone:</strong>
+                  {clientProfile.contact}
+                  <br />
+                </p>
+                <hr />
                 </div>
-              </div>
-            ) : (
+            ): (
               <></>
             )}
-          </Col>
-          <Col xs={4} lg={3}>
-            {/* {(project) ?
-                            (
-                                <div className="card">
-                                    <div className="card-header mr-auto">
-                                        <h2>{ticketInfo.title}</h2>
-                                    </div>
-                                    <div className="card-body">
-                                        <form>
-                                            <Input 
-                                            onChange={handleInputChange}
-                                            name="title"
-                                            placeholder="Title (required)"
-                                            value={projectForm.title}
-                                            />
-                                            <Input
-                                            onChange={handleInputChange}
-                                            name="description"
-                                            placeholder="Description (required)"
-                                            value={projectForm.description}
-                                            />
-                                            <Input
-                                            onChange={handleInputChange}
-                                            name="githubRepo"
-                                            placeholder="GitHubRepo (required)"
-                                            value={projectForm.githubRepo}
-                                            />
-                                            <Input
-                                            onChange={handleInputChange}
-                                            name="createdBy"
-                                            placeholder="Created By (required)"
-                                            value={projectForm.createdBy}
-                                            />
-                                            <Input
-                                            onChange={handleInputChange}
-                                            name="status"
-                                            placeholder="Status"
-                                </div>
-                            </div>):
-                     (<></>)
-                     } */}
-
           </Col>
         </Row>
       </Container>
