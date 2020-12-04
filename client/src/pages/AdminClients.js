@@ -114,7 +114,7 @@ function AdminClients() {
     <div>
       <NavigationBar />
       <Container fluid>
-        <Row className="show-grid">
+        <Row className="show-grid no-gutter">
           <Col xs={2}>
             <NavSideBar />
           </Col>
@@ -122,27 +122,29 @@ function AdminClients() {
             {!clients.length ? (
               <h1 className="text-center">No Clients to Display</h1>
             ) : (
-              <div className="card">
+              <div className="card-deck text-center">
                 <ClientCard
                   className="card-header"
                   cardHeader="List of Clients"
                   cardEntry="/clients"
                 >
-                  {clients.map((client) => {
-                    return (
-                      <ClientCardBody
-                        id={client.roles}
-                        key={client.roles}
-                        name={client.name}
-                        company={client.company}
-                        email={client.email}
-                        contact={client.contact}
-                        tickets={client.tickets}
-                        client={client}
-                        clickFunction={displayClientDtl}
-                      />
-                    );
-                  })}
+                  <div className="card-body">
+                    {clients.map((client) => {
+                      return (
+                        <ClientCardBody
+                          id={client.roles}
+                          key={client.roles}
+                          name={client.name}
+                          company={client.company}
+                          email={client.email}
+                          contact={client.contact}
+                          tickets={client.tickets}
+                          client={client}
+                          clickFunction={displayClientDtl}
+                        />
+                      );
+                    })}
+                  </div>
                 </ClientCard>
               </div>
             )}
@@ -150,7 +152,7 @@ function AdminClients() {
 
           <Col xs={3} lg={3}>
             {clientProfile.id !== "" ? (
-              <div className="card">
+              <div className="card-deck">
                 <div className="card-header mr-auto">
                   <h2>{clientProfile.company}</h2>
                 </div>
@@ -190,7 +192,7 @@ function AdminClients() {
           </Col>
           <Col xs={3} lg={3}>
             {ticketInfo.id !== "" ? (
-              <div className="card">
+              <div className="card-deck">
                 <div className="card-header mr-auto">
                   <h2>{ticketInfo.title}</h2>
                 </div>

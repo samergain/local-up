@@ -18,7 +18,6 @@ export function ClientCardBody(props) {
 
     return (
         <div>
-            <div className="card-body">
                 <button
                     id={props.id}
                     name={props.name}
@@ -26,13 +25,12 @@ export function ClientCardBody(props) {
                     email={props.email}
                     contact={props.contact}
                     tickets={props.tickets}
-                    className="btn btn-primary"
+                    className="btn btn-primary btn-size mb-3"
                     value={props.client}
                     onClick={(e, client=props.client) => props.clickFunction(e, client)}
                 >
                     {props.company}
                 </button>
-            </div>
         </div>
         
       
