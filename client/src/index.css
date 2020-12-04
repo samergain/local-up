@@ -22,7 +22,8 @@ div[data-reactroot] {
   box-sizing: border-box;
 }
 body {
-  background: #1C8EF9 !important;
+  /* background: #1C8EF9 !important; */
+  background: #0E86D4 !important;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -40,14 +41,14 @@ body, html, .App, #root, .auth-wrapper {
   height: 100%;
 }
 
-.navbar-light {
+/* .navbar-light {
   background-color: #ffffff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
 }
 .home, .service{
   width: 70%;
   height: 50%;
-}
+} */
 
 .auth-wrapper {
   display: flex;
@@ -87,10 +88,36 @@ body, html, .App, #root, .auth-wrapper {
   text-align: right;
   font-size: 13px;
   padding-top: 10px;
-  color: #7f7d7d;
+  color: white;
   margin: 0;
 }
 
 .forgot-password a {
-  color: #167bff;
+  color: #003060;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #003060 !important;
+}
+
+/* .navbar-color {
+  color: black;
+} */
+
+a {
+  color: #003060;
+}
+a:hover {color: white;}
+
+/* .row > div {
+  background: lightgrey;
+  border: 1px solid;
+} */
+
+.btn-signup, .btn-login{
+  width:100%;
+}
+
+.btn-size {
+  width: 75%;
 }

@@ -1,14 +1,12 @@
 import React from "react";
 import NavBar from "../components/HomePortal/NavBar/NavBar";
-import {Container, Row, Col} from "react-bootstrap";
 
-function Home() {
+function Home(){
     return (
         <div>
         <NavBar />
+        <form className="home">
         <Container fluid>
-            <Row>
-            <Col xs={12}>
             <h3>Home</h3>
 
             <div className="form-group">
@@ -20,8 +18,7 @@ function Home() {
                      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
             </div>
-            </Col>
-            </Row>
+        </form>
         </Container>
         </div>
     );
