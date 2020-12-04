@@ -34,7 +34,7 @@ app.use(routes);
 //const db = require("./app/models");
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/localupDB",
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/clientProfile",
           {
             useNewUrlParser: true,
             useUnifiedTopology: true,
