@@ -8,8 +8,11 @@ function Login() {
             <NavBar />
             <Container fluid>
                 <Row>
-                <Col xs={4}>
-                    </Col>
+                <p></p>
+                </Row>
+                <Row className="justify-content-md-center">
+                {/* <Col xs={4}>
+                    </Col> */}
                     <Col xs={4}>
                         <form>
                             <h3>Sign In</h3>
@@ -31,7 +34,7 @@ function Login() {
                                 </div>
                             </div>
 
-                            <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                            <button type="submit" className="btn btn-primary btn-login">Submit</button>
                             <p className="forgot-password text-right">
                                 Forgot <a href="#">password?</a>
                             </p>

@@ -7,10 +7,8 @@ function SignUp() {
         <div>
             <NavBar />
             <Container fluid>
-                <Row>
-                    <Col xs={4}>
-                    </Col>
-                    <Col xs={4}>
+                <Row className="justify-content-md-center">
+                    <Col xs={6} md={6}>
                         <form>
                             <h3>Sign Up</h3>
 
@@ -39,7 +37,7 @@ function SignUp() {
                                 <input type="password" className="form-control" placeholder="Enter password" />
                             </div>
 
-                            <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+                            <button type="submit" className="btn btn-primary btn-signup">Sign Up</button>
                             <p className="forgot-password text-right">
                                 Already registered <a href="#">sign in?</a>
                             </p>
