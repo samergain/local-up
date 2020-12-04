@@ -1,6 +1,8 @@
 import React from "react";
-import NavBar from "../NavBar";
-import { Nav, Col, Container, Row, Form, Button } from "react-bootstrap";
+import { Col, Container, Row, Form, Button } from "react-bootstrap";
+import NavBar from "../components/client-portal/NavBar";
+import NavSideBar from "../components/client-portal/NavSideBar";
+
 function CreateTicket() {
   return (
     <div>
@@ -8,21 +10,7 @@ function CreateTicket() {
       <Container fluid>
         <Row>
           <Col xs={2}>
-            <Nav className="col-md-12 d-none d-md-block bg-default sidebar justify-content-left">
-              <div className="sidebar-sticky"></div>
-              <Nav.Item>
-                <Nav.Link href="/profile">Profile</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/create-tickets">Create a Ticket</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/active-tickets">Active Tickets</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/contacts">Contacts</Nav.Link>
-              </Nav.Item>
-            </Nav>
+            <NavSideBar />
           </Col>
           <Col xs={10}>
             <Form>
@@ -38,8 +26,8 @@ function CreateTicket() {
                 <Form.Control as="textarea" placeholder="Please describe in detail, what your issues are." rows={5} />
               </Form.Group>
               <Button variant="primary" type="submit">
-    Submit
-  </Button>
+                Submit
+              </Button>
             </Form>
           </Col>
         </Row>

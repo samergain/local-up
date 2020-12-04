@@ -1,11 +1,11 @@
 import React from "react";
-import "./NavigationBar.css";
+import "./NavBar.css";
 import { Nav, Navbar } from 'react-bootstrap';
 
 
 
 // Navigation Bar component - using react bootstrap navbar
-function NavigationBar() {
+function NavBar() {
 
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
@@ -13,13 +13,15 @@ function NavigationBar() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="/clients" >Clients</Nav.Link>
-                    <Nav.Link href="/projects" >Projects</Nav.Link>
-                    <Nav.Link href="/signout" className="ml-auto">SignOut</Nav.Link>
+                    <Nav.Link href="/home" >Home</Nav.Link>
+                    <Nav.Link href="/sign-in" >Login</Nav.Link>
+                    <Nav.Link href="/sign-up" >SignUp</Nav.Link>
+                    <Nav.Link href="/services" >Services</Nav.Link>
+                    <Nav.Link href="/logout" className="ml-auto">SignOut</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
     );
 }
 
-export default NavigationBar;
+export default NavBar;
