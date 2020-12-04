@@ -1,8 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import NavBar from "../components/HomePortal/NavBar/NavBar";
+import AuthService from "../services/auth-service";
+import { Redirect } from "react-router-dom";
 
 function Login() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    function handleUsernameChange(event) {
+        setUsername(event.target.value);
+    }
+
+    function handlePasswordChange(event) {
+        setPassword(event.target.value);
+    }
+
+    function handleLoginSubmit(event){
+        event.preventDefault();
+        if(username && password) {
+            AuthService.login(username,password)
+            .then(
+                (user) => {
+                  console.log("we get the user back: ", user);
+                  if(user.roles[0]==="ROLE_CLIENT"){
+                    window.location.href = "/profile";
+                  }
+                //   else if (user.roles[0]==="ROLE_DEVELOPER") {
+                //     window.location.href = "/";
+                //   }
+                  else if (user.roles[0]==="ROLE_ADMIN") {
+                    window.location.href = "/clients";
+                  }
+                  else {
+                    window.location.href = "/";
+                  }
+                }
+            )
+            .catch(err => console.log(err))
+        }
+    }
+
     return (
         <div>
             <NavBar />
@@ -19,12 +57,12 @@ function Login() {
 
                             <div className="form-group">
                                 <label>User Name</label>
-                                <input type="username" className="form-control" placeholder="Enter UserName" />
+                                <input onChange={handleUsernameChange} type="username" className="form-control" placeholder="Enter UserName" />
                             </div>
 
                             <div className="form-group">
                                 <label>Password</label>
-                                <input type="password" className="form-control" placeholder="Enter password" />
+                                <input onChange={handlePasswordChange} type="password" className="form-control" placeholder="Enter password" />
                             </div>
 
                             <div className="form-group">
@@ -34,10 +72,10 @@ function Login() {
                                 </div>
                             </div>
 
-                            <button type="submit" className="btn btn-primary btn-login">Submit</button>
-                            <p className="forgot-password text-right">
+                            <button onClick={handleLoginSubmit} type="submit" className="btn btn-primary btn-login">Submit</button>
+                            {/* <p className="forgot-password text-right">
                                 Forgot <a href="#">password?</a>
-                            </p>
+                            </p> */}
                         </form>
                     </Col>
                 </Row>

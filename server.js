@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 let corsOptions = {
-  origin: "http://localhost:8081"  //maybe change it to 3000 to match react??
+  origin: "http://localhost:3000"  //maybe change it to 3000 to match react??
 };
 
 
