@@ -46,7 +46,8 @@ class AuthService {
       contact,
       github,
       skills
-    });
+    })
+    .then(response => alert(response.data.message));
   }
 
   getCurrentUser() {
