@@ -2,12 +2,12 @@ import React from "react";
 import "./ProjectButton.css";
 
 function ProjectButton(props){
-    console.log("Printing from ProjectButton");
+    // console.log("Printing from ProjectButton", props);
 
     return(
         <div>
             <button className="btn btn-primary mb-3 btn-size"
-             onClick={(e, ticket=props.ticket) => props.clickFunction(e, ticket)}>
+             onClick={(e, ticket=props) => props.clickFunction(e, ticket)}>
                 Create Project
             </button>
         </div>

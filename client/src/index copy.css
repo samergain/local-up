@@ -23,7 +23,7 @@ div[data-reactroot] {
 }
 body {
   /* background: #1C8EF9 !important; */
-  background: #2E8BC0 !important;
+  background: #0E86D4 !important;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -97,7 +97,7 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  background-color: #0C2D48 !important;
+  background-color: #003060 !important;
 }
 
 /* .navbar-color {
@@ -105,9 +105,9 @@ body, html, .App, #root, .auth-wrapper {
 } */
 
 a {
-  color: #B1D4E0;
+  color: #003060;
 }
-a:hover {color: #145DA0;}
+a:hover {color: white;}
 
 /* .row > div {
   background: lightgrey;
@@ -115,7 +115,7 @@ a:hover {color: #145DA0;}
 } */
 
 .btn-signup, .btn-login{
-  width:25%;
+  width:100%;
 }
 
 .btn-size {
@@ -123,43 +123,5 @@ a:hover {color: #145DA0;}
 }
 
 .pad-card-info{
-  padding: 15px;
-}
-
-.card{
-  background-color:#B1D4E0;
-  width: 100%;
-  margin-top: 45px;
-}
-
-.card-header{
-  background-color: #B1D4E0;
-  width: 100%;
-}
-
-.card-body{
-  background-color: #B1D4E0;
-  width: 100%
-}
-
-.sidebar{
-  background-color: #0C2D48 ;
-  height: 100vh;
-  width:40%;
-}
-
-/* .navsidebar{
-  background-color: #0C2D48 ;
-} */
-
-.mainpage {
-  height: 500px;
-  padding: 50px;
-}
-.mainpage-card{
-  width: 100%
-}
-
-.navbar-bg{
-  background-color: #0C2D48;
+  padding: 20px;
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../components/client-portal/NavBar";
 import NavSideBar from "../components/client-portal/NavSideBar";
 import { Col, Container, Row } from "react-bootstrap";
-import clientUser from "../data/clients.json";
+import clientUser from "../data/users.json";
 
 function Profile() {
   const [clientProfile, setClientProfile] = useState({
