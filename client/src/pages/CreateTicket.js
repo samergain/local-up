@@ -13,8 +13,12 @@ function CreateTicket() {
             <NavSideBar />
           </Col>
           <Col xs={10}>
+          <div className="card">
             <Form>
+              <div className="card-header">                                       
               <h3>Got a problem? Create a ticket for it.</h3>
+              </div>
+              <div className="card-body">
               <Form.Group controlId="formTicketTitle">
                 <Form.Label>What's the issue? Give it a title.</Form.Label>
                 <Form.Control type="ticket" placeholder="Ticket Title" />
@@ -28,7 +32,9 @@ function CreateTicket() {
               <Button variant="primary" type="submit">
                 Submit
               </Button>
+              </div>
             </Form>
+          </div>
           </Col>
         </Row>
       </Container>

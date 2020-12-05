@@ -13,8 +13,7 @@ export function ClientCard(props) {
 }
 
 export function ClientCardBody(props) {
-
-    console.log("PROPS from Card: ", props);
+    // console.log("pringing from ClientCardBody - Props: ", props);
 
     return (
         <div>
@@ -26,6 +25,7 @@ export function ClientCardBody(props) {
                     contact={props.contact}
                     tickets={props.tickets}
                     className="btn btn-primary btn-size mb-3"
+                    // variant="primary"
                     value={props.client}
                     onClick={(e, client=props.client) => props.clickFunction(e, client)}
                 >
