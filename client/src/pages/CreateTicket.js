@@ -7,28 +7,28 @@ import AuthService from "../services/auth-service";
 
 function CreateTicket() {
   const currentUser = AuthService.getCurrentUser();
-  let ticketId = "";
+  
   const [form, setForm] = useState({});
   const handleInputChange = function(e) {
       const {name, value} = e.target;
       console.log("here is the value of: ", value)
       setForm({...form,[name]:value});
   }
-  const handleSubmit = function(e) {
+  const handleSubmit = async function(e) {
       e.preventDefault();
       
-      if (form.title && form.description){
-      API.saveTicket({title:form.title, description:form.description})
-         .then(response => {
-        ticketId = JSON.stringify(response._id);
-        API.addTicketToClient(currentUser.id,ticketId).then(response => console.log(response))
-      })
-      // .then(
-      //   API.addTicketToClient(currentUser.id,ticketId)
-      // )
-      .catch(err=> console.log(err))
+    try {
+        if (form.title && form.description){
+          const response = await API.saveTicket({title:form.title, description:form.description})
+            console.log("response from ticket: ", response);
+          let ticketId = response.data._id;
+            console.log("ticketID is:", ticketId);
+          const addTicket = await API.addTicketToClient(currentUser.id,ticketId)
+            console.log(addTicket);
+        }
+    } catch (error) {
+      console.log(error)
     }
-      
   }
 
   return (
