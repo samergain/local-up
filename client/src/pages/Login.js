@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import NavBar from "../components/HomePortal/NavBar/NavBar";
 import AuthService from "../services/auth-service";
-import { Redirect } from "react-router-dom";
+
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -21,10 +21,9 @@ function Login() {
         if (username && password) {
             AuthService.login(username, password)
                 .then(
-                    (user) => {
-                        console.log("we get the user back: ", user);
+                    (user) => {  
                         if (user.roles[0] === "ROLE_CLIENT") {
-                            window.location.href = "/profile";
+                            window.location.href = "/profile";                      
                         }
                         //   else if (user.roles[0]==="ROLE_DEVELOPER") {
                         //     window.location.href = "/";
@@ -34,10 +33,10 @@ function Login() {
                         }
                         else {
                             window.location.href = "/";
-                        }
+                            }
                     }
                 )
-                .catch(err => console.log(err))
+                .catch((err) => alert(err))
         }
     }
 
