@@ -1,12 +1,10 @@
 import React from "react";
-import "./ClientsCard.css";
-
 
 export function ClientCard(props) {
 
     return (
         <div className="card-header mr-auto">
-            <h2 className="text-center">{props.cardHeader}</h2>
+            {/* <h2 className="text-center">{props.cardHeader}</h2> */}
             {props.children}
         </div>
     )

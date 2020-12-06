@@ -22,23 +22,25 @@ function ProjectButton(props) {
                 <Input
                     onChange={props.handleInputChange}
                     name="githubRepo"
-                    placeholder="GitHubRepo (required)"
+                    placeholder="GitHubRepo"
                     value={props.githubRepo}
                 />
                 <Input
                     onChange={props.handleInputChange}
                     name="createdBy"
-                    placeholder="Created By (required)"
-                    value={props.createdBy}
+                    placeholder="Created By"
+                    value={props.currentUser}
+                    disabled
                 />
                 <Input
                     onChange={props.handleInputChange}
                     name="status"
                     placeholder="Status"
-                    value={props.status}
+                    value="OPEN"
+                    disabled
                 />
                 <FormBtn
-                // disabled={!(props.title && props.description)}
+                disabled={!(props.title && props.description)}
                 onClick={props.handleFormSubmit}
                 >
                     Submit Project Form

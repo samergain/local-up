@@ -1,5 +1,4 @@
 import React from "react";
-import "./TicketList.css";
 
 function TicketList(props){
 

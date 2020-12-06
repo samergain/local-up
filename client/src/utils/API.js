@@ -42,5 +42,10 @@ export default {
   },
   deleteProjects : function(id) { 
     return axios.delete("/api/project/" + id); 
+  },
+
+  //Get ticket by Id.
+  getTicket : function(id) {
+    return axios.get("/api/ticket/" + id);
   }
 }

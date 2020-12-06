@@ -1,5 +1,4 @@
 import React from "react";
-import "./ProjectButton.css";
 
 function ProjectButton(props){
     // console.log("Printing from ProjectButton", props);

@@ -5,6 +5,8 @@ import { ClientCard, ClientCardBody } from "../components/AdminPortal/ClientsCar
 import TicketList from "../components/AdminPortal/TicketList/TicketList";
 import ProjectButton from "../components/AdminPortal/ProjectButton/ProjectButton";
 import ProjectForm from "../components/AdminPortal/ProjectForm/ProjectForm";
+// import users from "../data/users.json";
+import tickets from "../data/tickets.json";
 import NavigationBar from "../components/AdminPortal/NavigationBar/NavigationBar";
 import NavSideBar from "../components/AdminPortal/NavSideBar/NavSideBar";
 import AuthService from "../services/auth-service";
@@ -13,8 +15,7 @@ import API from "../utils/API";
 
 function AdminClients() {
 
-    let currentUser = AuthService.getCurrentUser();
-    currentUser = "Meena Ambalam";
+    const currentUser = AuthService.getCurrentUser();
     console.log("currentUser: ", currentUser);
 
     const [clients, setClients] = useState({
@@ -33,14 +34,18 @@ function AdminClients() {
 
     function loadClients() {
         console.log("PlaceHolder for API call to get all Clients");
+
+        // let filteredClients = users.filter((user) => (user.roles === "ROLE_CLIENT"));
+        // setClients(filteredClients);
+
         API.getClients()
-            .then(res => {
-                // console.log("API CALL Returned - res.data: ", res.data);
-                let filteredClients = res.data.filter((user) => (user.roles[0].name === "client"));
-                // console.log("clients filtered filterClientes: ", filteredClients);
-                setClients(filteredClients);
-            })
-            .catch(err => console.log(err));
+        .then(res => {
+            console.log("API CALL Returned - res: ", res);
+            console.log("API CALL Returned - res.data: ", res.data);
+            // let filterClients = res.data.filter((user) => (user.roles[0].name === "client"));
+            // setClients(filteredClients);
+        })
+        .catch(err => console.log(err));
     }
 
     const [clientProfile, setClientProfile] = useState({
@@ -49,7 +54,7 @@ function AdminClients() {
         company: "",
         email: "",
         contact: "",
-        clientTickets: []
+        tickets: []
     });
 
     function displayClientDtl(event, client) {
@@ -62,23 +67,25 @@ function AdminClients() {
         });
 
         setProjectForm({
-            clientId: "",
+            client: "",
             clientticket: "",
             title: "",
             description: "",
             githubRepo: "",
             createdBy: "",
             status: "",
+            assignedUsers: [],
+            tasks: [],
             ticket: []
         });
 
         setClientProfile({
-            id: client._id,
+            id: client.id,
             name: client.name,
             company: client.company,
             email: client.email,
             contact: client.contact,
-            tickets: client.clientTickets
+            tickets: client.tickets
         });
 
     }
@@ -86,43 +93,41 @@ function AdminClients() {
     const [ticketInfo, setTicketInfo] = useState({
         id: "",
         title: "",
+        type: "",
         description: "",
-        status: "",
         client: "",
-        clientId: ""
+        projects: []
     });
 
     function getTicketInfo(event, ticket) {
         // console.log("client clicked from getTicketInfo: ", ticket);
-
-        //API Call to get the ticket details for the clicked ticket
-        API.getTicket(ticket.id)
-            .then(res => {
-                // console.log("matched ticket: ", res.data);
+        tickets.map((ticketdata) => {
+            if (ticketdata.id === ticket.ticket) {
                 setTicketInfo({
-                    id: ticket.id,
-                    title: res.data.title,
-                    status: res.data.status,
+                    id: ticketdata.id,
+                    title: ticketdata.title,
+                    type: ticketdata.type,
                     client: ticket.client,
-                    clientId: ticket.clientId,
-                    description: res.data.description
+                    description: ticketdata.description
                 });
-            })
-            .catch(err => console.log("error in getTicketInfo: ", err))
+            }
+        })
     }
-
 
     // const [project, setProject] = useState(false);
     const [projectForm, setProjectForm] = useState({
-        clientId: "",
+        client: "",
         clientticket: "",
         title: "",
         description: "",
         githubRepo: "",
         createdBy: "",
         status: "",
+        assignedUsers: [],
+        tasks: [],
         ticket: []
     })
+
 
 
     function createProjectForm(event, ticket) {
@@ -133,55 +138,44 @@ function AdminClients() {
             company: "",
             email: "",
             contact: "",
-            clientTickets: []
+            tickets: ""
         });
         setTicketInfo({
             id: "",
             title: "",
-            description: "",
-            status: "",
+            type: "",
             client: "",
-            clientId: ""
+            description: ""
         });
-
         setProjectForm({
-            clientId: ticket.clientId,
-            clientCompany: ticket.clientCompany,
-            ticketDesc: ticket.ticketDescription,
-            ticketId: ticket.ticketId,
-            ticketTitle:ticket.ticketTitle,
-            ticketStatus: ticket.ticketStatus,
+            client: ticket.client,
+            ticketDesc: ticket.description,
+            ticketId: ticket.id,
             title: "",
             description: "",
             githubRepo: "",
             createdBy: "",
             status: "",
-            ticket: [ticket.ticketId]
+            assignedUsers: [],
+            tasks: [],
+            ticket: []
         });
     };
 
     function handleInputChange(event) {
-        // console.log("printing from AdminClients handleInputChange: ", event);
+        console.log("printing from AdminClients handleInputChange: ", event);
         const { name, value } = event.target;
         setProjectForm({ ...projectForm, [name]: value })
     };
 
     function handleFormSubmit(event) {
-        console.log("printing from Adminclients handleFormSubmit", event);
+        console.log("prionting from Adminclients handleFormSubmit", event);
         event.preventDefault();
 
-        if (projectForm.title && projectForm.description) {
+        if (projectForm.title && projectForm.assignedUsers[0]) {
             console.log("Saving Form: ", projectForm);
-            API.saveProjects(projectForm)
-            .then(res => {
-                console.log(res.data);
-                alert("Project Added Successfully: ");
-            })
-            .catch(err=>console.log("error while adding project: ", err))
         }
     };
-
-
 
     return (
         <div>
@@ -192,26 +186,26 @@ function AdminClients() {
                         <NavSideBar />
                     </Col>
 
-                    {!clients.length ? (
-                        <h1 className="text-center">No Clients to Display</h1>
-                    ) : (
-                            <Col xs={3} lg={3}>
+                        {!clients.length ? (
+                            <h1 className="text-center">No Clients to Display</h1>
+                        ) : (
+                                <Col xs={3} lg={3}>
                                 <div className="card text-center">
-                                    <div className="card-header text-center">
-                                        <h2>List of Clients</h2>
-                                    </div>
                                     <ClientCard
+                                        className="card-header"
+                                        cardHeader="List of Clients"
+                                        cardEntry="/clients"
                                     >
                                         <div className="card-body">
                                             {clients.map(client => {
                                                 return (<ClientCardBody
                                                     id={client._id}
-                                                    key={client._id}
+                                                    key={client.username}
                                                     name={client.name}
                                                     company={client.company}
                                                     email={client.email}
                                                     contact={client.contact}
-                                                    tickets={client.clientTickets}
+                                                    tickets={client.tickets}
                                                     client={client}
                                                     clickFunction={displayClientDtl}
                                                 />
@@ -220,12 +214,12 @@ function AdminClients() {
                                         </div>
                                     </ClientCard>
                                 </div>
-                            </Col>
-                        )}
+                                </Col>
+                            )}
 
-                    {(clientProfile.id !== "") ?
-                        (
-                            <Col xs={3} lg={3}>
+                        {(clientProfile.id !== "") ?
+                            (
+                                <Col xs={3} lg={3}>
                                 <div className="card">
                                     <div className="card-header text-center">
                                         <h2>{clientProfile.company}</h2>
@@ -245,7 +239,6 @@ function AdminClients() {
                                                         id={ticket}
                                                         ticket={ticket}
                                                         key={ticket}
-                                                        clientId={clientProfile.id}
                                                         client={clientProfile.company}
                                                         clickFunction={getTicketInfo}
                                                     />
@@ -261,68 +254,61 @@ function AdminClients() {
                                         )
                                     }
                                 </div>
-                            </Col>
-                        ) : (<></>)
-                    }
-
-                    {(ticketInfo.id !== "") ?
-                        (
-                            <Col xs={3} lg={3}>
+                                </Col>
+                            ) : (<></>)
+                        }
+  
+                        {(ticketInfo.id !== "") ?
+                            (
+                                <Col xs={3} lg={3}>
                                 <div className="card">
                                     <div className="card-header mr-auto">
                                         <h2>{ticketInfo.title}</h2>
                                     </div>
                                     <p className="pad-card-info">
-                                        <strong>Id:</strong>{ticketInfo.id} <br />
-                                        <strong>Description:</strong>{ticketInfo.description} <br />
-                                        <strong>Status:</strong> {ticketInfo.status} <br />
+                                        <strong>Id:</strong>{ticketInfo.id}<br />
+                                        <strong>Type:</strong> {ticketInfo.type}<br />
+                                        <strong>Description:</strong>{ticketInfo.description}
                                     </p>
                                     <div className="card-body text-center">
                                         <ProjectButton
-                                            ticketId={ticketInfo.id}
-                                            ticketTitle={ticketInfo.title}
-                                            ticketStatus={ticketInfo.status}
-                                            ticketDescription={ticketInfo.description}
-                                            clientCompany={ticketInfo.client}
-                                            clientId={ticketInfo.clientId}
+                                            id={ticketInfo.id}
+                                            type={ticketInfo.type}
+                                            description={ticketInfo.description}
+                                            client={ticketInfo.client}
                                             clickFunction={createProjectForm}
                                         />
                                     </div>
                                 </div>
-                            </Col>
-                        ) : (<></>)
-                    }
-                    {(projectForm.clientticket !== "") ?
-                        (
-                            <Col xs={6} lg={6}>
+                                </Col>
+                            ) : (<></>)
+                        }
+                        {(projectForm.clientticket !== "") ?
+                            (   
+                                <Col xs={6} lg={6}>
                                 <div className="card">
                                     <div className="card-header">
-                                        <h2>{projectForm.clientCompany}</h2>
+                                        <h2>{projectForm.client}</h2>
                                     </div>
                                     <p className="pad-card-info">
-                                        <strong>Ticket:</strong>{projectForm.ticketTitle}<br />
-                                        <strong>Ticket Description:</strong>{projectForm.ticketDesc}<br/>
-                                        <strong>Ticket Status:</strong>{projectForm.ticketStatus}<br/>
+                                        <strong>Ticket:</strong>{projectForm.ticketId}<br />
+                                        <strong>Description:</strong>{projectForm.ticketDesc}
                                     </p>
                                     <div className="card-body">
                                         <ProjectForm
-                                            clientId={projectForm.clientId}
-                                            ticketId={projectForm.ticketId}
-                                            ticketTitle={projectForm.ticketTitle}
                                             title={projectForm.title}
                                             description={projectForm.description}
                                             githubRepo={projectForm.githubRepo}
                                             createdBy={projectForm.createdBy}
                                             status={projectForm.status}
-                                            currentUser={currentUser}
                                             handleInputChange={handleInputChange}
                                             handleFormSubmit={handleFormSubmit}
                                         />
                                     </div>
                                 </div>
-                            </Col>
-                        ) : (<></>)
-                    }
+                                </Col>
+                            ) : (<></>)
+                        }
                 </Row>
             </Container>
         </div >
