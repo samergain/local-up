@@ -15,11 +15,10 @@ function Profile() {
     tickets: [],
   });
 
-// clientProfile not getting data, that's why nothing is showing up.
+// ==== clientProfile not getting data, that's why nothing is showing up. =====
+console.log("Line 20 and 39 should match");
 console.log(clientProfile);
 
-
-  // const [clients, setClients] = useState([]);
 
   useEffect(() => {
     loadClientProfile();
@@ -30,24 +29,24 @@ console.log(clientProfile);
     console.log(clientUser);
 
     //1. get the logged in user from LocalStorage
-    let currUserID = "client1";
+    const currUserID = "client1";
     //2. Get the json file, filter only the user that is logged in, id or role
     // and save into new var
     let matchedUser = clientUser.filter(
       (currUser) => currUser.id === currUserID
     );
-    console.log(currUserID);
+
     console.log(matchedUser);
-    
+
     //3. setclientProfile(....)
-    setClientProfile({
-      id: matchedUser.id,
-      name: matchedUser.name,
-      company: matchedUser.company,
-      email: matchedUser.email,
-      contact: matchedUser.contact,
-      tickets: matchedUser.tickets,
-    });
+    setClientProfile(matchedUser);
+
+        // API.getAllClients()
+        // .then(res => {
+        //     setClients(res.data);
+        // })
+        // .catch(err => console.log(err));
+        
   }
 
   return (
@@ -58,8 +57,8 @@ console.log(clientProfile);
           <Col xs={2}>
             <NavSideBar />
           </Col>
+          {clientProfile.id !== "" ? (
           <Col xs={3} lg={3}>
-            {clientProfile.id !== "" ? (
               <div className="card-deck">
                 <div className="card-header mr-auto">
                   <h2>{clientProfile.company}</h2>
@@ -76,10 +75,10 @@ console.log(clientProfile);
                 </p>
                 <hr />
               </div>
+              </Col>
             ) : (
-              <></>
-            )}
-          </Col>
+              <> </>
+          )}
         </Row>
       </Container>
     </div>
