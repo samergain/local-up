@@ -19,6 +19,9 @@ console.log(tickets);
 
 
 // use getclients, then filter that from localstorage and get tickets
+// result of filter is new array
+// let filteredClients = res.data.filter((user) => (user.roles[0] === "client"));
+// setClients(filteredClients);
     
       // Load all books and store them with setBooks
       useEffect(() => {
