@@ -155,11 +155,13 @@ function AdminClients() {
     };
 
     function handleInputChange(event) {
+        console.log("printing from AdminClients handleInputChange: ", event);
         const { name, value } = event.target;
         setProjectForm({ ...projectForm, [name]: value })
     };
 
     function handleFormSubmit(event) {
+        console.log("prionting from Adminclients handleFormSubmit", event);
         event.preventDefault();
 
         if (projectForm.title && projectForm.assignedUsers[0]) {
@@ -291,8 +293,8 @@ function AdminClients() {
                                             githubRepo={projectForm.githubRepo}
                                             createdBy={projectForm.createdBy}
                                             status={projectForm.status}
-                                            changeFunction={handleInputChange}
-                                            submitFunction={handleFormSubmit}
+                                            handleInputChange={handleInputChange}
+                                            handleFormSubmit={handleFormSubmit}
                                         />
                                     </div>
                                 </div>

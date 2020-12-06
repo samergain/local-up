@@ -38,7 +38,7 @@ function ProjectButton(props) {
                     value={props.status}
                 />
                 <FormBtn
-                disabled={!(props.title && props.description)}
+                // disabled={!(props.title && props.description)}
                 onClick={props.handleFormSubmit}
                 >
                     Submit Project Form
