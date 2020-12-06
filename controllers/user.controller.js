@@ -42,9 +42,11 @@ exports.findAllUsers = (req, res) => {
 exports.updateClientTickets = (req, res) => {
       console.log("req body clientTickets: ", req.body);
       db.user
-            .findByIdAndUpdate({ _id: req.params.id }, {$push: {clientTickets: req.body.clientTickets}} ,  { new: true} )
+            .findByIdAndUpdate({ _id: req.params.id }, 
+                  {$push: {clientTickets: req.body.id}} ,  { new: true} )
             .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+            .catch(err => console.log(err));
+                  //res.status(422).json(err));
 };
 
 
