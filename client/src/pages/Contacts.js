@@ -9,6 +9,9 @@ function Contact() {
   // if ticket.json id === users.json tickets[], then
   // display users.json name, email, and contact
 
+// ============= Don't need for now!! ==========
+
+
 
   return (
     <div>
@@ -21,7 +24,7 @@ function Contact() {
           {
             <Col xs={10}>
               <h3>For questions or concerns, please contact :</h3>
-              <div className="card-deck">
+              {/* <div className="card-deck">
                 <div className="card-header mr-auto">
                   <h2>{clientProfile.company}</h2>
                 </div>
@@ -36,7 +39,7 @@ function Contact() {
                   <br />
                 </p>
                 <hr />
-              </div>
+              </div> */}
             </Col>
           }
         </Row>
