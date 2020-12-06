@@ -1,6 +1,14 @@
 import axios from "axios";
 
 export default {
+
+
+  //Users///
+  //Get all Users 
+  getAllUsers: function() {
+    return axios.get("/api/user/users");
+  },
+
   //////Clients/////
   // Get all clients with their tickets
   getClients: function() {
@@ -40,12 +48,13 @@ export default {
   saveProjects : function(projectData) { 
     return axios.post("/api/project", projectData); 
   },
-  deleteProjects : function(id) { 
-    return axios.delete("/api/project/" + id); 
-  },
 
   //Get ticket by Id.
   getTicket : function(id) {
     return axios.get("/api/ticket/" + id);
-  }
+  },
+//   //Update ticket status by Id.
+//   updateTicket : function(id, ticketObj) {
+//     return axios.put("/api/ticket/" + id, {status: status});
+//   }
 }

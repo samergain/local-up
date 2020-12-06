@@ -30,12 +30,12 @@ function AdminClients() {
     useEffect(() => {
         loadClients()
     }, [])
-
+    // Get all Users and filter only the "client" user type
     function loadClients() {
         console.log("PlaceHolder for API call to get all Clients");
-        API.getClients()
+        API.getAllUsers()
             .then(res => {
-                // console.log("API CALL Returned - res.data: ", res.data);
+                console.log("API CALL Returned - res.data: ", res.data);
                 let filteredClients = res.data.filter((user) => (user.roles[0].name === "client"));
                 // console.log("clients filtered filterClientes: ", filteredClients);
                 setClients(filteredClients);

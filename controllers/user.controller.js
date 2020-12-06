@@ -21,16 +21,17 @@ const db = require("../models");
 //       .catch(err => res.status(422).json(err));
 //   }
 
-// //returns all users with "client" role, and their tickets
-// exports.findAllClients = (req, res) => {
-//       console.log("finallclients req: , req");
-//       db.user.find({roles: ["5fcc5fade27ebb3c7cec96a5"]})
-//              .populate("clientTickets","-__v")
-//              .then(dbModel => res.json(dbModel))
-//              .catch(err => res.status(422).json(err));
-// };
-// {"roles.name" : "client"}
+//returns all users with "client" role, and their tickets
 exports.findAllClients = (req, res) => {
+      console.log("finallclients req: , req");
+      db.user.find()
+             .populate("clientTickets","-__v")
+             .populate("roles")
+             .then(dbModel => res.json(dbModel))
+             .catch(err => res.status(422).json(err));
+};
+// returns all users with the associated "roles" document
+exports.findAllUsers = (req, res) => {
       db.user.find()
              .populate("roles")
              .then(dbModel => res.json(dbModel))

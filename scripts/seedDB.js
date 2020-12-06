@@ -127,31 +127,31 @@ console.log("db: ", db);
 //   });
 
 
-// //Role
-// // Load Roles Collection
-// const roleSeed = [
-//   {
-//     name: "admin",
-//   },
-//   {
-//     name: "client",
-//   },
-//   {
-//     name: "developer",
-//   }
-// ]
+//Role
+// Load Roles Collection
+const roleSeed = [
+  {
+    name: "admin",
+  },
+  {
+    name: "client",
+  },
+  {
+    name: "developer",
+  }
+]
 
-// db.role
-//   .remove({})
-//   .then(() => db.role.collection.insertMany(roleSeed))
-//   .then(data => {
-//     console.log(data.result.n + " records inserted!");
-//     process.exit(0);
-//   })
-//   .catch(err => {
-//     console.error(err);
-//     process.exit(1);
-//   });
+db.role
+  .remove({})
+  .then(() => db.role.collection.insertMany(roleSeed))
+  .then(data => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
 
 
 // //Project
