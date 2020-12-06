@@ -29,7 +29,7 @@ console.log(clientProfile);
     console.log(clientUser);
 
     //1. get the logged in user from LocalStorage
-    const currUserID = "client1";
+    const currUserID = "client1"; //Get and match from localstorage
     //2. Get the json file, filter only the user that is logged in, id or role
     // and save into new var
     let matchedUser = clientUser.filter(

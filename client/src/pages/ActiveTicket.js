@@ -15,6 +15,8 @@ function ActiveTicket() {
         projects: [],
       });
     
+console.log(tickets);
+
     //   const [thisclientTicket, setthisclientTicket] = useState([]);
     
       // Load all books and store them with setBooks
@@ -27,19 +29,13 @@ function ActiveTicket() {
         console.log("API call to get all Tickets");
         console.log(clientTicket);
     
-        let currTicketID = "tkt11";
+        const currTicketID = "tkt11"; // Match with username from localstorage
         let matchedTicket = clientTicket.filter(
           (currTicket) => currTicket.id === currTicketID
         );
-        console.log(currTicketID);
+
         console.log(matchedTicket);
-        setClientTickets({
-          id: matchedTicket.id,
-          title: matchedTicket.title,
-          type: matchedTicket.type,
-          description: matchedTicket.description,
-          projects: matchedTicket.projects
-        });
+        setClientTickets(matchedTicket);
       }
 
     return (
