@@ -17,7 +17,7 @@ const User = mongoose.model(
         ref: "Role"
       }
     ],
-    projects: [{
+    devProjects: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Project"
     }],
@@ -29,7 +29,7 @@ const User = mongoose.model(
         type: mongoose.Schema.Types.ObjectId,
         ref: "Blog"
     }],
-    tickets: [{
+    clientTickets: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Ticket"
     }]
