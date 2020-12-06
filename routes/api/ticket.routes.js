@@ -5,7 +5,7 @@ const ticketController = require("../../controllers/ticket.controller");
 router.route("/")
   .get(ticketController.findAll)
   .post(ticketController.create);
-
+  
 // Matches with "/api/ticket/:id"
 router
   .route("/:id")
