@@ -33,7 +33,7 @@ app.use(routes);
 
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/clientProfile",
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/localupDB",
           {
             useNewUrlParser: true,
             useUnifiedTopology: true,
