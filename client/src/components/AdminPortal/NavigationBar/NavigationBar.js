@@ -9,7 +9,7 @@ function NavigationBar() {
 
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
-        <Navbar.Brand href="/">
+        <Navbar.Brand>
           <h3>Local UP</h3>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -24,7 +24,8 @@ function App() {
         <Route exact path="/sign-in" component={Login} />
         <Route exact path="/sign-up" component={SignUp} />
         {user && user.roles[0] === "ROLE_CLIENT" && (<Route exact path="/profile" component={Profile} />)}
-        
+        {user && user.roles[0] === "ROLE_CLIENT" && (<Route exact path="/clients" component={Home} />)}
+        {user && user.roles[0] === "ROLE_CLIENT" && (<Route exact path="/projects" component={Home} />)}
         {/* Jeff's Routes */}
 
         <Route exact path="/profile" component={Profile} />
@@ -32,8 +33,10 @@ function App() {
         <Route exact path="/active-tickets" component={ActiveTicket} />
         <Route exact path="/contacts" component={Contact} />
         {/* Meena's Routes */}
-        <Route exact path="/clients" component={Clients} />
-        <Route exact path="/projects" component={Projects} />
+        {user && user.roles[0] === "ROLE_ADMIN" && (<Route exact path="/clients" component={Clients} />)}
+        {user && user.roles[0] === "ROLE_ADMIN" && (<Route exact path="/projects" component={Projects} />)}
+        
+        
         </Switch>
       </div>
     </Router>

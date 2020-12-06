@@ -32,9 +32,11 @@ exports.findAllClients = (req, res) => {
 
 exports.updateClientTickets = (req, res) => {
       db.user
-            .findByIdAndUpdate({ _id: req.params.id }, {$push: {clientTickets: req.body.id}} ,  { new: true} )
+            .findByIdAndUpdate({ _id: req.params.id }, 
+                  {$push: {clientTickets: req.body.id}} ,  { new: true} )
             .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
+            .catch(err => console.log(err));
+                  //res.status(422).json(err));
 };
 
 /////protecting resources on server side//////
