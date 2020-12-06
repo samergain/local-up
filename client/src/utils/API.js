@@ -9,18 +9,12 @@ export default {
   //update a client with a new ticket
   addTicketToClient: function(userId, ticketId) {
     return axios.put("/api/user/clientTicket/" + userId , {id: ticketId})
-                .then(response => {
-                  return response.data;
-                });
   },
 
   //////Tickets//////
   // create ticket
   saveTicket : function(ticketData) {
-      return axios.post("/api/ticket")
-                  .then(response => {
-                    return response.data;
-                  });
+      return axios.post("/api/ticket", ticketData)
   },
   //Gets all the blogs in the collection.
   getBlogs : function() {
