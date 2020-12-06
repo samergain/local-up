@@ -3,16 +3,17 @@ import NavBar from "../components/client-portal/NavBar";
 import NavSideBar from "../components/client-portal/NavSideBar";
 import { Col, Container, Row } from "react-bootstrap";
 import clientUser from "../data/users.json";
+import AuthService from "../services/auth-service";
 
 function Profile() {
 
   const [clientProfile, setClientProfile] = useState({
     id: "",
-    name: "",
     company: "",
+    name: "",
+    description: "",
     email: "",
-    contact: "",
-    tickets: [],
+    contact: ""
   });
 
 // ==== clientProfile not getting data, that's why nothing is showing up. =====
@@ -29,17 +30,15 @@ console.log(clientProfile);
     console.log(clientUser);
 
     //1. get the logged in user from LocalStorage
-    const currUserID = "client1"; //Get and match from localstorage
+    const currUserID = AuthService.getCurrentUser; //Get and match from localstorage
     //2. Get the json file, filter only the user that is logged in, id or role
     // and save into new var
-    let matchedUser = clientUser.filter(
-      (currUser) => currUser.id === currUserID
-    );
+  
 
-    console.log(matchedUser);
+    console.log(currUserID);
 
     //3. setclientProfile(....)
-    setClientProfile(matchedUser);
+    setClientProfile(currUserID);
 
         // API.getAllClients()
         // .then(res => {
@@ -64,7 +63,7 @@ console.log(clientProfile);
                   <h2>{clientProfile.company}</h2>
                 </div>
                 <p>
-                  <strong>Contact:</strong> {clientProfile.name}
+                  <strong>Name:</strong> {clientProfile.name}
                   <br />
                   <strong>Email:</strong>
                   {clientProfile.email}
