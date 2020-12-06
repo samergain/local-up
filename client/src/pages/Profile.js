@@ -15,6 +15,10 @@ function Profile() {
     tickets: [],
   });
 
+// clientProfile not getting data, that's why nothing is showing up.
+console.log(clientProfile);
+
+
   // const [clients, setClients] = useState([]);
 
   useEffect(() => {
@@ -26,16 +30,16 @@ function Profile() {
     console.log(clientUser);
 
     //1. get the logged in user from LocalStorage
+    let currUserID = "client1";
     //2. Get the json file, filter only the user that is logged in, id or role
     // and save into new var
-    //3. setclientProfile(....)
-
-    let currUserID = "client1";
     let matchedUser = clientUser.filter(
       (currUser) => currUser.id === currUserID
     );
     console.log(currUserID);
     console.log(matchedUser);
+    
+    //3. setclientProfile(....)
     setClientProfile({
       id: matchedUser.id,
       name: matchedUser.name,
@@ -44,26 +48,7 @@ function Profile() {
       contact: matchedUser.contact,
       tickets: matchedUser.tickets,
     });
-
-    // setClients(clientUser);
-
-    // API.getAllClients()
-    // .then(res => {
-    //     setClients(res.data);
-    // })
-    // .catch(err => console.log(err));
   }
-
-  // function getCurrentUser(id) {
-  //   //   // let getUser = clients.filter(currUser => if (currUser.username ==id) return currUser);
-  //   let getUser = clientUser.filter(
-  //     (currUser) => currUser.id === clientUser[0].id
-  //   );
-  //   console.log(getUser);
-
-  //   //   //set that to clientProfile
-  // }
-  // getCurrentUser();
 
   return (
     <div>
