@@ -30,8 +30,7 @@ if (process.env.NODE_ENV === "production") {
 require('./routes/api/auth.routes')(app);
 require('./routes/api/user.routes')(app);
 app.use(routes);
-//added from tutorial to be checked
-//const db = require("./app/models");
+
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/localupDB",

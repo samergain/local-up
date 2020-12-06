@@ -10,8 +10,10 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
+import AuthService from "./services/auth-service";
 
 function App() {
+  const user = AuthService.getCurrentUser();
   return (
     <Router>
       <div>
@@ -21,8 +23,10 @@ function App() {
         <Route exact path="/home" component={Home} />
         <Route exact path="/sign-in" component={Login} />
         <Route exact path="/sign-up" component={SignUp} />
-        <Route exact path="/services" component={Services} />
+        {user && user.roles[0] === "ROLE_CLIENT" && (<Route exact path="/profile" component={Profile} />)}
+        
         {/* Jeff's Routes */}
+
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/create-tickets" component={CreateTicket} />
         <Route exact path="/active-tickets" component={ActiveTicket} />
