@@ -9,9 +9,12 @@ import users from "../data/users.json";
 import tickets from "../data/tickets.json";
 import NavigationBar from "../components/AdminPortal/NavigationBar/NavigationBar";
 import NavSideBar from "../components/AdminPortal/NavSideBar/NavSideBar";
+import AuthService from "../services/auth-service";
 
 
 function AdminClients() {
+
+    const currentUser = AuthService.getCurrentUser();
 
     const [clients, setClients] = useState({
         id: "",

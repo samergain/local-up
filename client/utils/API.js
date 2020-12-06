@@ -9,9 +9,5 @@ export default {
   signin: function(username,password) {
 
     return axios.post("/api/auth/signin");
-  },
-  // add Projects Users
-  addProject: function() {
-    return axios.post("/api/project");
   }
-};
+}
