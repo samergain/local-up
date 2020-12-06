@@ -5,6 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import clientUser from "../data/users.json";
 
 function Profile() {
+
   const [clientProfile, setClientProfile] = useState({
     id: "",
     name: "",
@@ -14,7 +15,7 @@ function Profile() {
     tickets: [],
   });
 
-  const [clients, setClients] = useState([]);
+  // const [clients, setClients] = useState([]);
 
   useEffect(() => {
     loadClientProfile();
@@ -28,12 +29,13 @@ function Profile() {
     //2. Get the json file, filter only the user that is logged in, id or role
     // and save into new var
     //3. setclientProfile(....)
-    
-const currUserID = "test1";
+
+    let currUserID = "client1";
     let matchedUser = clientUser.filter(
       (currUser) => currUser.id === currUserID
     );
- console.log(matchedUser);
+    console.log(currUserID);
+    console.log(matchedUser);
     setClientProfile({
       id: matchedUser.id,
       name: matchedUser.name,
@@ -44,9 +46,6 @@ const currUserID = "test1";
     });
 
     // setClients(clientUser);
-
-
-
 
     // API.getAllClients()
     // .then(res => {
@@ -91,8 +90,8 @@ const currUserID = "test1";
                   <br />
                 </p>
                 <hr />
-                </div>
-            ): (
+              </div>
+            ) : (
               <></>
             )}
           </Col>
