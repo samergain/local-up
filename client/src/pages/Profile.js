@@ -43,10 +43,10 @@ function Profile() {
             <Col xs={3} lg={3}>
               <div className="card-deck">
                 <div className="card-header mr-auto">
-                  <h2>Company: {user.company}</h2>
+                  <h2>{user.company}</h2>
                 </div>
                 <p>
-                  <strong>NAme: </strong> {user.name}
+                  <strong>Name: </strong> {user.name}
                   <br />
                   <strong>Email: </strong>
                   {user.email}
