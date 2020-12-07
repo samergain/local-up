@@ -19,7 +19,7 @@ function NavBar() {
           <NavDropdown.Item href="/create-tickets">Create a Ticket</NavDropdown.Item>
           <NavDropdown.Item href="/active-tickets">Active Tickets</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="/contacts">Contacts</NavDropdown.Item>
+          {/* <NavDropdown.Item href="/contacts">Contacts</NavDropdown.Item> */}
         </NavDropdown>
           </Nav>
         </Navbar.Collapse>
