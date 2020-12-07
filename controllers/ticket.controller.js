@@ -8,7 +8,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    console.log("printing in ticket controller - findByID: ", req);
     db.Ticket
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))

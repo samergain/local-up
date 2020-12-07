@@ -244,7 +244,7 @@ function AdminClients() {
                     {(clientProfile.id !== "") ?
                         (
                             <Col xs={3} lg={3}>
-                                <LightSpeed right>
+                                <LightSpeed left>
                                 <div className="card">
                                     <div className="card-header text-center">
                                         <h2>{clientProfile.company}</h2>
