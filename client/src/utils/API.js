@@ -24,31 +24,61 @@ export default {
   saveTicket : function(ticketData) {
       return axios.post("/api/ticket", ticketData)
   },
-  //Gets all the blogs in the collection.
-  getBlogs : function() {
-      return axios.get("/api/blog");
-  },
-  saveBlogs : function(blogData) { 
-    return axios.post("/api/blog", blogData); 
-  },
-  deleteBlogs : function(id) { 
-    return axios.delete("/api/blog/" + id); 
+  // update ticket
+  updateTicket: function(ticketId, ticketData) {
+    return axios.put("/api/ticket/"+ ticketId, ticketData)
   },
   
-  //Gets all the projects in the collection.
-  getProjects : function() {
+  ///////Projects////////
+  //Gets all the projects with their tasks and ticket
+  getProject : function() {
       return axios.get("/api/project");
   },
-  saveProjects : function(projectData) { 
+  //update project: add a created task to it
+  addTaskToProject : function(projectID, taskID) {
+    return axios.put("/api/project/projectTask/" + projectID , {id: taskID})
+  },
+  saveProject : function(projectData) { 
     return axios.post("/api/project", projectData); 
   },
 
-  //Get ticket by Id.
-  getTicket : function(id) {
-    return axios.get("/api/ticket/" + id);
+  updateProject: function(id, projectData) {
+    return axios.put("/api/project/" + id, projectData);
   },
-  //Update ticket by Id.
-  updateTicket : function(id, ticketData) {
-    return axios.put("/api/ticket/" + id, ticketData);
-  }
-}
+
+  /////////Tasks///////////
+  //get task by id
+  getTaskById : function(id) {
+    return axios.get("/api/task/" + id);
+  },
+  createTask : function(taskData) {
+    return axios.post("/api/task", taskData);
+  },
+  updateTask : function(id, taskData) {
+    return axios.put("/api/task/" + id, taskData);
+  },
+  deleteTask : function(id) { 
+    return axios.delete("/api/task/" + id); 
+  },
+  
+    //Get ticket by Id.
+    getTicket : function(id) {
+      return axios.get("/api/ticket/" + id);
+    },
+    //Update ticket by Id.
+    updateTicket : function(id, ticketData) {
+      return axios.put("/api/ticket/" + id, ticketData);
+    }
+  
+  //Gets all the blogs in the collection.
+  // getBlogs : function() {
+  //   return axios.get("/api/blog");
+  // },
+  // saveBlogs : function(blogData) { 
+  //   return axios.post("/api/blog", blogData); 
+  // },
+  // deleteBlogs : function(id) { 
+  //   return axios.delete("/api/blog/" + id); 
+  // },
+
+};

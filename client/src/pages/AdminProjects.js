@@ -14,8 +14,7 @@ import API from "../utils/API";
 function AdminProjects() {
 
     let currentUser = AuthService.getCurrentUser();
-    currentUser = "Meena Ambalam";
-    console.log("currentUser: ", currentUser);
+    // console.log("currentUser: ", currentUser.username);
 
     const [projects, setProjects] = useState({});
 

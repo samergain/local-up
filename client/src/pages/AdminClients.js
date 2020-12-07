@@ -14,7 +14,7 @@ import API from "../utils/API";
 function AdminClients() {
 
     let currentUser = AuthService.getCurrentUser();
-    console.log("currentUser: ", currentUser.username);
+    // console.log("currentUser: ", currentUser.username);
 
     const [clients, setClients] = useState({
         _id: "",
@@ -290,7 +290,7 @@ function AdminClients() {
                                     <p className="pad-card-info">
                                         <strong>Id:</strong>{ticketInfo.id} <br />
                                         <strong>Description:</strong>{ticketInfo.description} <br />
-                                        <strong>Status:</strong> {ticketInfo.status || "none"} <br />
+                                        <strong>Status:</strong> {ticketInfo.status || "new"} <br />
                                     </p>
                                     <div className="card-body text-center">
                                         <ProjectButton
