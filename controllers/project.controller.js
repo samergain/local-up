@@ -4,6 +4,8 @@ module.exports = {
   findAll: function(req, res) {
     db.Project
       .find(req.query)
+      .populate("tasks")
+      .populate("ticket")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -18,6 +20,15 @@ module.exports = {
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  ///api/project/projectTask/:id
+  updateProjectTasks = (req, res) => {
+    db.Project
+          .findByIdAndUpdate({ _id: req.params.id }, 
+                {$push: {tasks: req.body.id}} ,  { new: true} )
+          .then(dbModel => res.json(dbModel))
+          .catch(err => console.log(err));
+                //res.status(422).json(err));
   },
   update: function(req, res) {
     db.Project
