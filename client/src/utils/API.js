@@ -52,7 +52,10 @@ export default {
     return axios.delete("/api/task/" + id); 
   },
   
-  
+  //add roles
+  addRoles : function(roleData) {
+    return axios.post("/api/role", roleData)
+  }
   //Gets all the blogs in the collection.
   // getBlogs : function() {
   //   return axios.get("/api/blog");

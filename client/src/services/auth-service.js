@@ -37,6 +37,7 @@ class AuthService {
     let contact = args[2];
     let github = args[3];
     let skills = args[4];
+    let roles = args[5];
     return axios.post(API_URL + "signup", {
       username,
       email,
@@ -45,7 +46,8 @@ class AuthService {
       company,
       contact,
       github,
-      skills
+      skills,
+      roles
     })
     .then(response => alert(response.data.message));
   }

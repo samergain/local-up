@@ -15,7 +15,8 @@ exports.signup = (req, res) => {
     company: req.body.company,
     contact: req.body.contact,
     github: req.body.github,
-    skills: req.body.skills
+    skills: req.body.skills,
+    roles: req.body.roles
   });
 
   user.save((err, user) => {
