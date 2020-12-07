@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../components/client-portal/NavBar";
 import NavSideBar from "../components/client-portal/NavSideBar";
 import { Col, Container, Row } from "react-bootstrap";
-// import clientUser from "../data/users.json";
-// import clientTicket from "../data/tickets.json";
 import AuthService from "../services/auth-service";
 import API from "../utils/API";
 
@@ -19,27 +17,14 @@ function ActiveTicket() {
     try {
       const currUserTickets = AuthService.getCurrentUser();
       let thisUserTickets = [];
-      console.log("this is currUserTickets.id", currUserTickets.id);
-      // console.log(clientTicket);
+      // console.log("this is currUserTickets.id", currUserTickets.id);
 
       const allTickets = await API.getClients();
-      console.log("These are all the tickets", allTickets);
+      // console.log("These are all the tickets", allTickets);
       thisUserTickets = await allTickets.data.filter((x) => x._id === currUserTickets.id);
-
-      // const thisClientTicket = thisUserTickets[0].clientTickets;
-      
-
-      console.log("this is the filtered user", thisUserTickets);
+      // console.log("this is the filtered user tickets", thisUserTickets);
       setClientTickets(thisUserTickets[0].clientTickets);
-
-      // tickets.map((ticketdata) => {
-
-      // })
-
-      console.log("This is our current state", tickets);
-
-      // console.log(matchedTicket);
-      // setClientTickets(matchedTicket);
+      // console.log("This is our current state", tickets);
     }catch (err) {
       console.log(err);
     }
@@ -53,22 +38,26 @@ function ActiveTicket() {
           <Col xs={2}>
             <NavSideBar />
           </Col>
-          <Col xs={3} lg={3}>
-            {tickets.id !== "" ? (
-              <div className="card-deck">
+          {!tickets.length ? (
+            <h1 className="text-center">You have no tickets to display</h1>
+          ) : (
+            <Col xs={3} lg={3}>
+                    {tickets.map((ticketData) => {
+                      return (
+                        <div className="card-deck">
                 <div className="card-header mr-auto">
-                  <h2>{tickets.title}</h2>
+                  ID: {ticketData._id}
                 </div>
-                <p>
-                  <strong>Description:</strong> {tickets.description}
+                <p>Title :{ticketData.title}</p>
+                <p><strong>Description:</strong> {ticketData.description}
                   <br />
                 </p>
                 <hr />
               </div>
-            ) : (
-              <></>
-            )}
-          </Col>
+                      );
+                    })}
+            </Col>
+          )}
         </Row>
       </Container>
     </div>
