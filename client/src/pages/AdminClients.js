@@ -9,6 +9,7 @@ import NavigationBar from "../components/AdminPortal/NavigationBar/NavigationBar
 import NavSideBar from "../components/AdminPortal/NavSideBar/NavSideBar";
 import AuthService from "../services/auth-service";
 import API from "../utils/API";
+import LightSpeed from "react-reveal/LightSpeed";
 
 
 function AdminClients() {
@@ -33,7 +34,7 @@ function AdminClients() {
     function loadClients() {
         API.getAllUsers()
             .then(res => {
-                console.log("API CALL Returned - res.data: ", res.data);
+                // console.log("API CALL Returned - res.data: ", res.data);
                 let filteredClients = res.data.filter((user) => (user.roles[0].name === "client"));
                 // console.log("clients filtered filterClientes: ", filteredClients);
                 setClients(filteredClients);
@@ -170,9 +171,9 @@ function AdminClients() {
 
         try {
             if (projectForm.title && projectForm.description) {
-                console.log("Saving Form: ", projectForm);
-                const response = await API.saveProjects(projectForm)
-                console.log("Project saved response data : ", response.data);
+                // console.log("Saving Form: ", projectForm);
+                const response = await API.saveProject(projectForm)
+                // console.log("Project saved response data : ", response.data);
                 if (response.status === 200) {
                     alert("Project Added Successfully: ");
                     const responseTicket = await API.updateTicket(response.data.ticket[0], {"status":"in-progress"});
@@ -211,6 +212,7 @@ function AdminClients() {
                         <h1 className="text-center">No Clients to Display</h1>
                     ) : (
                             <Col xs={3} lg={3}>
+                                <LightSpeed left>
                                 <div className="card text-center">
                                     <div className="card-header text-center">
                                         <h2>List of Clients</h2>
@@ -235,12 +237,14 @@ function AdminClients() {
                                         </div>
                                     </ClientCard>
                                 </div>
+                                </LightSpeed>
                             </Col>
                         )}
 
                     {(clientProfile.id !== "") ?
                         (
                             <Col xs={3} lg={3}>
+                                <LightSpeed right>
                                 <div className="card">
                                     <div className="card-header text-center">
                                         <h2>{clientProfile.company}</h2>
@@ -276,6 +280,7 @@ function AdminClients() {
                                         )
                                     }
                                 </div>
+                                </LightSpeed>
                             </Col>
                         ) : (<></>)
                     }
@@ -283,6 +288,7 @@ function AdminClients() {
                     {(ticketInfo.id !== "") ?
                         (
                             <Col xs={3} lg={3}>
+                                <LightSpeed left>
                                 <div className="card">
                                     <div className="card-header mr-auto">
                                         <h2>{ticketInfo.title}</h2>
@@ -304,12 +310,14 @@ function AdminClients() {
                                         />
                                     </div>
                                 </div>
+                                </LightSpeed>
                             </Col>
                         ) : (<></>)
                     }
                     {(projectForm.clientticket !== "") ?
                         (
                             <Col xs={6} lg={6}>
+                                <LightSpeed clear>
                                 <div className="card">
                                     <div className="card-header">
                                         <h2>{projectForm.clientCompany}</h2>
@@ -317,7 +325,7 @@ function AdminClients() {
                                     <p className="pad-card-info">
                                         <strong>Ticket:</strong>{projectForm.ticketTitle}<br />
                                         <strong>Ticket Description:</strong>{projectForm.ticketDesc}<br />
-                                        <strong>Ticket Status:</strong>{projectForm.ticketStatus}<br />
+                                        <strong>Ticket Status:</strong>{projectForm.ticketStatus || "new"}<br />
                                     </p>
                                     <div className="card-body">
                                         <ProjectForm
@@ -335,6 +343,7 @@ function AdminClients() {
                                         />
                                     </div>
                                 </div>
+                                </LightSpeed>
                             </Col>
                         ) : (<></>)
                     }

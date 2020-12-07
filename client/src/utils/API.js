@@ -32,6 +32,7 @@ export default {
   ///////Projects////////
   //Gets all the projects with their tasks and ticket
   getProject : function() {
+      console.log("Printing from API.js");
       return axios.get("/api/project");
   },
   //update project: add a created task to it
@@ -63,11 +64,8 @@ export default {
   
     //Get ticket by Id.
     getTicket : function(id) {
+      console.log("get Ticket by Id - from API.js: ", id)
       return axios.get("/api/ticket/" + id);
-    },
-    //Update ticket by Id.
-    updateTicket : function(id, ticketData) {
-      return axios.put("/api/ticket/" + id, ticketData);
     }
   
   //Gets all the blogs in the collection.
