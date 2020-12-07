@@ -1,6 +1,14 @@
 import axios from "axios";
 
 export default {
+
+
+  //Users///
+  //Get all Users 
+  getAllUsers: function() {
+    return axios.get("/api/user/users");
+  },
+
   //////Clients/////
   // Get all clients with their tickets
   getClients: function() {
@@ -11,6 +19,11 @@ export default {
     return axios.put("/api/user/clientTicket/" + userId , {id: ticketId})
   },
 
+  //Get ticket by Id.
+  getTicket : function(id) {
+    return axios.get("/api/ticket/" + id);
+  },
+  
   //////Tickets//////
   // create ticket
   saveTicket : function(ticketData) {
@@ -24,6 +37,7 @@ export default {
   ///////Projects////////
   //Gets all the projects with their tasks and ticket
   getProject : function() {
+      console.log("Printing from API.js");
       return axios.get("/api/project");
   },
   //update project: add a created task to it
@@ -33,6 +47,7 @@ export default {
   saveProject : function(projectData) { 
     return axios.post("/api/project", projectData); 
   },
+
   updateProject: function(id, projectData) {
     return axios.put("/api/project/" + id, projectData);
   },
