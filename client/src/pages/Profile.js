@@ -2,81 +2,64 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../components/client-portal/NavBar";
 import NavSideBar from "../components/client-portal/NavSideBar";
 import { Col, Container, Row } from "react-bootstrap";
-import clientUser from "../data/users.json";
 import AuthService from "../services/auth-service";
+import API from "../utils/API";
 
 function Profile() {
-
-  const [clientProfile, setClientProfile] = useState({
-    id: "",
-    company: "",
-    name: "",
-    description: "",
-    email: "",
-    contact: ""
-  });
-
-// ==== clientProfile not getting data, that's why nothing is showing up. =====
-console.log("Line 20 and 39 should match");
-console.log(clientProfile);
-
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     loadClientProfile();
-  }, []);
+  }, {});
 
-  function loadClientProfile() {
-    console.log("API call to get all Clients");
-    console.log(clientUser);
+  const loadClientProfile = async function () {
+    try {
+      const currUser = AuthService.getCurrentUser();
+      let thisUser = [];
+      console.log("this is currUser.id", currUser.id);
+      console.log(currUser);
+      const allClients = await API.getClients();
+      console.log("These are all the clients", allClients.data);
+      thisUser = await allClients.data.filter((x) => x._id === currUser.id);
 
-    //1. get the logged in user from LocalStorage
-    const currUserID = AuthService.getCurrentUser; //Get and match from localstorage
-    //2. Get the json file, filter only the user that is logged in, id or role
-    // and save into new var
-  
+      console.log("this is the filtered user", thisUser);
+      setUser(thisUser[0]);
 
-    console.log(currUserID);
-
-    //3. setclientProfile(....)
-    setClientProfile(currUserID);
-
-        // API.getAllClients()
-        // .then(res => {
-        //     setClients(res.data);
-        // })
-        // .catch(err => console.log(err));
-        
-  }
+      console.log("This is our current state", user.company);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div>
       <NavBar />
       <Container fluid>
         <Row>
-          <Col xs={2}>
+          <Col xs={3}>
             <NavSideBar />
           </Col>
-          {clientProfile.id !== "" ? (
-          <Col xs={3} lg={3}>
+          {user.id !== "" ? (
+            <Col xs={3} lg={3}>
               <div className="card-deck">
                 <div className="card-header mr-auto">
-                  <h2>{clientProfile.company}</h2>
+                  <h2>Company: {user.company}</h2>
                 </div>
                 <p>
-                  <strong>Name:</strong> {clientProfile.name}
+                  <strong>NAme: </strong> {user.name}
                   <br />
-                  <strong>Email:</strong>
-                  {clientProfile.email}
+                  <strong>Email: </strong>
+                  {user.email}
                   <br />
-                  <strong>Phone:</strong>
-                  {clientProfile.contact}
+                  <strong>Phone: </strong>
+                  {user.contact}
                   <br />
                 </p>
                 <hr />
               </div>
-              </Col>
-            ) : (
-              <> </>
+            </Col>
+          ) : (
+            <> </>
           )}
         </Row>
       </Container>
