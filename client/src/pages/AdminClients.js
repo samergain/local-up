@@ -175,8 +175,20 @@ function AdminClients() {
                 console.log("Project saved response data : ", response.data);
                 if (response.status === 200) {
                     alert("Project Added Successfully: ");
-                    const updateTicketStatus = await API.updateTicket(response.data.ticket[0], {"status":"in-progress"});
-                    console.log("ticket status updated: ", updateTicketStatus);
+                    const responseTicket = await API.updateTicket(response.data.ticket[0], {"status":"in-progress"});
+                    if (responseTicket.status === 200){
+                        console.log("ticket status updated: ", responseTicket);
+                        setProjectForm(
+                            {clientId: "",
+                            clientticket: "",
+                            title: "",
+                            description: "",
+                            githubRepo: "",
+                            createdBy: "",
+                            status: "",
+                            ticket: []
+                            });
+                    }
                 }
             }
         } catch (error) {
