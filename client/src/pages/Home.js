@@ -11,6 +11,12 @@ function Home() {
                     <Col xs={10}>
                         <div className="card mainpage-card">
                             <div className="mainpage">
+                                <ui>
+                            <img src="https://meenaamblam.github.io/local-up/Golocal.png" alt="ImageNotRendering" width="200" height="150"/>
+                            </ui>
+                            <ui>
+                            <img src="https://meenaamblam.github.io/local-up/Golocal.png" alt="ImageNotRendering" width="200" height="150"/>
+                            </ui>
                             <h3>Home</h3>
                                 <label>LoremIpsum</label>
                                 <p>
@@ -18,7 +24,7 @@ function Home() {
                                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                                </p>
                             </div>
                         </div>
                     </Col>
