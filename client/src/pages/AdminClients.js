@@ -14,8 +14,7 @@ import API from "../utils/API";
 function AdminClients() {
 
     let currentUser = AuthService.getCurrentUser();
-    currentUser = "Meena Ambalam";
-    console.log("currentUser: ", currentUser);
+    console.log("currentUser: ", currentUser.username);
 
     const [clients, setClients] = useState({
         _id: "",
@@ -32,7 +31,6 @@ function AdminClients() {
     }, [])
     // Get all Users and filter only the "client" user type
     function loadClients() {
-        console.log("PlaceHolder for API call to get all Clients");
         API.getAllUsers()
             .then(res => {
                 console.log("API CALL Returned - res.data: ", res.data);
@@ -149,7 +147,7 @@ function AdminClients() {
             clientCompany: ticket.clientCompany,
             ticketDesc: ticket.ticketDescription,
             ticketId: ticket.ticketId,
-            ticketTitle:ticket.ticketTitle,
+            ticketTitle: ticket.ticketTitle,
             ticketStatus: ticket.ticketStatus,
             title: "",
             description: "",
@@ -166,18 +164,23 @@ function AdminClients() {
         setProjectForm({ ...projectForm, [name]: value })
     };
 
-    function handleFormSubmit(event) {
+    async function handleFormSubmit(event) {
         console.log("printing from Adminclients handleFormSubmit", event);
         event.preventDefault();
 
-        if (projectForm.title && projectForm.description) {
-            console.log("Saving Form: ", projectForm);
-            API.saveProjects(projectForm)
-            .then(res => {
-                console.log(res.data);
-                alert("Project Added Successfully: ");
-            })
-            .catch(err=>console.log("error while adding project: ", err))
+        try {
+            if (projectForm.title && projectForm.description) {
+                console.log("Saving Form: ", projectForm);
+                const response = await API.saveProjects(projectForm)
+                console.log("Project saved response data : ", response.data);
+                if (response.status === 200) {
+                    alert("Project Added Successfully: ");
+                    const updateTicketStatus = await API.updateTicket(response.data.ticket[0], {"status":"in-progress"});
+                    console.log("ticket status updated: ", updateTicketStatus);
+                }
+            }
+        } catch (error) {
+            console.log("Error while saving Project or updating ticket status: ", error);
         }
     };
 
@@ -275,7 +278,7 @@ function AdminClients() {
                                     <p className="pad-card-info">
                                         <strong>Id:</strong>{ticketInfo.id} <br />
                                         <strong>Description:</strong>{ticketInfo.description} <br />
-                                        <strong>Status:</strong> {ticketInfo.status} <br />
+                                        <strong>Status:</strong> {ticketInfo.status || "none"} <br />
                                     </p>
                                     <div className="card-body text-center">
                                         <ProjectButton
@@ -301,8 +304,8 @@ function AdminClients() {
                                     </div>
                                     <p className="pad-card-info">
                                         <strong>Ticket:</strong>{projectForm.ticketTitle}<br />
-                                        <strong>Ticket Description:</strong>{projectForm.ticketDesc}<br/>
-                                        <strong>Ticket Status:</strong>{projectForm.ticketStatus}<br/>
+                                        <strong>Ticket Description:</strong>{projectForm.ticketDesc}<br />
+                                        <strong>Ticket Status:</strong>{projectForm.ticketStatus}<br />
                                     </p>
                                     <div className="card-body">
                                         <ProjectForm
@@ -314,7 +317,7 @@ function AdminClients() {
                                             githubRepo={projectForm.githubRepo}
                                             createdBy={projectForm.createdBy}
                                             status={projectForm.status}
-                                            currentUser={currentUser}
+                                            currentUser={currentUser.username}
                                             handleInputChange={handleInputChange}
                                             handleFormSubmit={handleFormSubmit}
                                         />

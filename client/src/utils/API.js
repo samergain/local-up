@@ -47,8 +47,8 @@ export default {
   getTicket : function(id) {
     return axios.get("/api/ticket/" + id);
   },
-//   //Update ticket status by Id.
-//   updateTicket : function(id, ticketObj) {
-//     return axios.put("/api/ticket/" + id, {status: status});
-//   }
+  //Update ticket by Id.
+  updateTicket : function(id, ticketData) {
+    return axios.put("/api/ticket/" + id, ticketData);
+  }
 }
