@@ -30,7 +30,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   ///api/project/projectTask/:id
-  updateProjectTasks : function (req, res) {
+  updateProjectTasks: function (req, res) {
     db.Project
           .findByIdAndUpdate({ _id: req.params.id }, 
                 {$push: {tasks: req.body.id}} ,  { new: true} )

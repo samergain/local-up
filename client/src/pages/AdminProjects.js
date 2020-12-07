@@ -36,46 +36,60 @@ function AdminProjects() {
             .catch(err => console.log(err));
     }
 
-    // const [projectDetails, setProjectDetails] = useState[{
-    //     id: "",
-    //     title: "",
-    //     description: "",
-    //     githubrepo: "",
-    //     status: "",
-    //     tasks: [],
-    //     tickets: []
-    // }]
+    const [projectDetails, setProjectDetails] = useState({
+        id: "",
+        title: "",
+        description: "",
+        githubrepo: "",
+        status: "",
+        tasks: [],
+        tickets: []
+    });
 
-    async function displayProjDetails(event, project) {
+  
+    // API.getTicket(ticket)
+    //             .then(res => console.log("ticket response: ", res))
+    //             .catch(error => console.log("error getting ticket details: ", error));
+
+    // const ticketDetails = project.ticket.map((ticket) => {
+    //     console.log("Ticket Value: ", ticket);
+    //     API.getTicket(ticket)
+    //         .then(res => console.log("ticket response: ", res))
+    //         .catch(error => console.log("error getting ticket details: ", error));
+    // })
+
+    // console.log("TicketDetails: ", ticketDetails);
+
+    // const taskDetails = project.tasks.map((task) => {
+    //     API.getTaskById(task)
+    //         .then(res => console.log("task response: ", res))
+    //         .catch(error => console.log("error getting task details: ", error));
+    // })
+
+
+    function displayProjDetails(event, project) {
+        console.log("display Project Details: ", project)
         event.preventDefault();
 
-        console.log("display Project Details: ", project)
-        const ticketDetails = project.ticket.map((ticket) => {
-            console.log("Ticket Value: ", ticket);
-            API.getTicket(ticket)
-                .then(res => console.log("ticket response: ", res))
-                .catch(error => console.log("error getting ticket details: ", error));
+        setProjectDetails({
+            id: project.id,
+            title: project.title,
+            description: project.description,
+            githubrepo: project.githubrepo,
+            status: project.status,
+            tasks: [project.tasks],
+            tickets: [project.tickets]
         })
 
-        console.log("TicketDetails: ", ticketDetails);
+    }
 
-        const taskDetails = project.tasks.map((task) => {
-            API.getTaskById(task)
-                .then(res => console.log("task response: ", res))
-                .catch(error => console.log("error getting task details: ", error));
-        })
+    function displayTicketDetails(event, ticket) {
+        console.log("display Ticket Details: ", ticket);
 
-        console.log("Task Details: ", taskDetails);
+    }
 
-        // setProjectDetails({
-        //     id: project.id,
-        //     title: project.title,
-        //     description: project.description,
-        //     githubrepo: project.githubrepo,
-        //     status: project.status,
-        //     tasks: taskDetails,
-        //     tickets: ticketDetails
-        // })
+    function displayTaskDetails(event, task) {
+        console.log("display Task Details: ", task);
 
     }
 
@@ -122,10 +136,10 @@ function AdminProjects() {
                             </Col>
                         )}
 
-                    {/* {projectDetails.id !== "" ?
+                    {(projectDetails.id !== "") ?
                         (
                             <Col xs={3} lg={3}>
-                                <div className="card text-center">
+                                <div className="card">
                                     <div className="card-header text-center">
                                         <h2>{projectDetails.title}</h2>
                                     </div>
@@ -134,22 +148,21 @@ function AdminProjects() {
                                         <strong>Description:</strong>{projectDetails.description} <br />
                                         <strong>Status:</strong> {projectDetails.status} <br />
                                     </p>
-                                    <div className="card-body">
+                                    <div className="card-body text-center">
                                         <h4><u>Tickets:</u></h4>
-                                        {(projectDetails.tasks.length)
+                                        {(projectDetails.tickets.length)
                                             ?(projectDetails.tickets.map(ticket => {
                                             <ProjectTicketList
-                                                id={ticket.id}
+                                                id={ticket._id}
                                                 ticket={ticket}
                                                 key={ticket.id}
                                                 projectId={projectDetails.id}
                                                 projectTitle={projectDetails.title}
-                                                clickFunction={displayProjDetails}
+                                                clickFunction={displayTicketDetails}
                                             />
                                             }))
                                             :(<h6>No Tickets</h6>)
                                         }
-
                                         <h4><u>Tasks:</u></h4>
                                         {(projectDetails.tasks.length)
                                             ?(
@@ -160,7 +173,7 @@ function AdminProjects() {
                                                 key={task.id}
                                                 projectId={projectDetails.id}
                                                 projectTitle={projectDetails.title}
-                                                clickFunction={displayProjDetails}
+                                                clickFunction={displayTaskDetails}
                                             />
                                             }))
                                             :(<h6>No Tasks</h6>)
@@ -169,7 +182,7 @@ function AdminProjects() {
                                 </div>
                             </Col>
                         ) : (<></>)
-                    } */}
+                    }
                 </Row>
             </Container>
         </div >

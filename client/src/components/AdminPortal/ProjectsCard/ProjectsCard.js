@@ -18,14 +18,13 @@ export function ProjectCardBody(props) {
                     id={props.id}
                     title={props.title}
                     description={props.description}
-                    email={props.email}
                     githubrepo={props.githubrepo}
                     status={props.status}
                     className="btn btn-primary btn-size mb-3"
                     tasks={props.tasks}
                     tickets={props.tickets}
                     project={props.project}
-                    onClick={(e, project=props.project) => props.clickFunction(e, project)}
+                    onClick={(e, project=props) => props.clickFunction(e, project)}
                 >
                     {props.title}
                 </button>

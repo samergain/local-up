@@ -19,6 +19,11 @@ export default {
     return axios.put("/api/user/clientTicket/" + userId , {id: ticketId})
   },
 
+  //Get ticket by Id.
+  getTicket : function(id) {
+    return axios.get("/api/ticket/" + id);
+  },
+  
   //////Tickets//////
   // create ticket
   saveTicket : function(ticketData) {
@@ -62,11 +67,10 @@ export default {
     return axios.delete("/api/task/" + id); 
   },
   
-    //Get ticket by Id.
-    getTicket : function(id) {
-      return axios.get("/api/ticket/" + id);
-    }
-  
+  //add roles
+  addRoles : function(roleData) {
+    return axios.post("/api/role", roleData)
+  }
   //Gets all the blogs in the collection.
   // getBlogs : function() {
   //   return axios.get("/api/blog");
