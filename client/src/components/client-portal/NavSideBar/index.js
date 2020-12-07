@@ -16,9 +16,9 @@ function NavSideBar() {
         <Nav.Item>
           <Nav.Link href="/active-tickets">Active Tickets</Nav.Link>
         </Nav.Item>
-        <Nav.Item>
+        {/* <Nav.Item>
           <Nav.Link href="/contacts">Contacts</Nav.Link>
-        </Nav.Item>
+        </Nav.Item> */}
       </Nav>
     </div>
   );

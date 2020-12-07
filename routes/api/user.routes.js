@@ -20,8 +20,10 @@ const { authJwt } = require("../../middlewares");
 const controller = require("../../controllers/user.controller");
 
 module.exports = function(app) {
+  
   app.put("/api/user/clientTicket/:id", controller.updateClientTickets);
   app.get("/api/user/clients", controller.findAllClients);
+  app.get("/api/user/users", controller.findAllUsers);
   
   
   /////////protecting resources on server side/////////

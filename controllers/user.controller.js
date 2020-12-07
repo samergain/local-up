@@ -23,14 +23,24 @@ const db = require("../models");
 
 //returns all users with "client" role, and their tickets
 exports.findAllClients = (req, res) => {
-      db.user.find({roles: ["5fc70d0904b82645a4a78624"]})
+      console.log("finallclients req: , req");
+      db.user.find()
              .populate("clientTickets","-__v")
+             .populate("roles")
+             .then(dbModel => res.json(dbModel))
+             .catch(err => res.status(422).json(err));
+};
+// returns all users with the associated "roles" document
+exports.findAllUsers = (req, res) => {
+      db.user.find()
+             .populate("roles")
              .then(dbModel => res.json(dbModel))
              .catch(err => res.status(422).json(err));
 };
 
 
 exports.updateClientTickets = (req, res) => {
+      console.log("req body clientTickets: ", req.body);
       db.user
             .findByIdAndUpdate({ _id: req.params.id }, 
                   {$push: {clientTickets: req.body.id}} ,  { new: true} )
@@ -38,6 +48,8 @@ exports.updateClientTickets = (req, res) => {
             .catch(err => console.log(err));
                   //res.status(422).json(err));
 };
+
+
 
 /////protecting resources on server side//////
 // exports.allAccess = (req, res) => {
