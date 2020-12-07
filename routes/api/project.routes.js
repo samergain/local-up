@@ -11,5 +11,8 @@ router
   .route("/:id")
   .get(projectController.findById)
   .put(projectController.update);
-
+// Matches with "/api/project/projectTask/:id"
+router
+  .route("/projectTask/:id")
+  .put(projectController.updateProjectTasks)
 module.exports = router;
