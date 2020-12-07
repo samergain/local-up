@@ -13,7 +13,7 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto justify-content-end">
             <Nav.Link href="/search"></Nav.Link>
-            <Nav.Link href="/logout">Logout</Nav.Link>
+            <Nav.Link href="/">Logout</Nav.Link>
             <NavDropdown title="Menu" id="basic-nav-dropdown" className="d-sm-none ">
           <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
           <NavDropdown.Item href="/create-tickets">Create a Ticket</NavDropdown.Item>
