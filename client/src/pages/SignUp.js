@@ -37,8 +37,9 @@ function SignUp() {
 
     function handleSubmit(event) {
         event.preventDefault();
+        const roles = "client";
         if (username && email && password) {
-            AuthService.register(username, email, password, name, company, contact)
+            AuthService.register(username, email, password, name, company, contact, roles)
                 .then(
                     () => {  window.location.href = "/sign-in"; }
                 )

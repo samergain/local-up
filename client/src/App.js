@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Profile from "./pages/Profile";
 import ActiveTicket from "./pages/ActiveTicket";
-import Contact from "./pages/Contacts";
+// import Contact from "./pages/Contacts";
 import CreateTicket from "./pages/CreateTicket";
 import Clients from "./pages/AdminClients";
 import Projects from "./pages/AdminProjects";
@@ -36,7 +36,7 @@ function App() {
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/create-tickets" component={CreateTicket} />
         <Route exact path="/active-tickets" component={ActiveTicket} />
-        <Route exact path="/contacts" component={Contact} />
+        {/* <Route exact path="/contacts" component={Contact} /> */}
         {/* Meena's Routes */}
         {user && user.roles[0] === "ROLE_ADMIN" && (<Route exact path="/clients" component={Clients} />)}
         {user && user.roles[0] === "ROLE_ADMIN" && (<Route exact path="/projects" component={Projects} />)}

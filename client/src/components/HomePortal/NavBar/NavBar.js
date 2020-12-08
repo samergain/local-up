@@ -17,7 +17,7 @@ function NavBar() {
                     <Nav.Link href="/sign-in" >Login</Nav.Link>
                     <Nav.Link href="/sign-up" >SignUp</Nav.Link>
                     <Nav.Link href="/services" >Services</Nav.Link>
-                    <Nav.Link href="/logout" className="ml-auto">SignOut</Nav.Link>
+                    <Nav.Link href="/" className="ml-auto">SignOut</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
