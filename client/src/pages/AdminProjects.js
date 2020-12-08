@@ -13,6 +13,7 @@ import API from "../utils/API";
 
 function AdminProjects() {
 
+    
     let currentUser = AuthService.getCurrentUser();
 
     const [projects, setProjects] = useState({

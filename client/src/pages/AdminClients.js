@@ -14,9 +14,10 @@ import LightSpeed from "react-reveal/LightSpeed";
 
 function AdminClients() {
 
+    // Get current username for use later 
     let currentUser = AuthService.getCurrentUser();
-    // console.log("currentUser: ", currentUser.username);
-
+    
+    // Client state definition
     const [clients, setClients] = useState({
         _id: "",
         username: "",
@@ -27,9 +28,12 @@ function AdminClients() {
         clientTickets: []
     });
 
+    // Loading Clients at the point of Admin page load
     useEffect(() => {
         loadClients()
     }, [])
+
+
     // Get all Users and filter only the "client" user type
     function loadClients() {
         API.getAllUsers()
@@ -42,6 +46,7 @@ function AdminClients() {
             .catch(err => console.log(err));
     }
 
+    // Client Profile State definition
     const [clientProfile, setClientProfile] = useState({
         id: "",
         name: "",
@@ -51,8 +56,10 @@ function AdminClients() {
         clientTickets: []
     });
 
+    // Display Client when each client is clicked
     function displayClientDtl(event, client) {
-
+        
+        // clear the state of components to hide the that are already displayed
         setTicketInfo({
             id: "",
             title: "",
@@ -71,6 +78,7 @@ function AdminClients() {
             ticket: []
         });
 
+        // set the state of the client profile component
         setClientProfile({
             id: client._id,
             name: client.name,
@@ -82,6 +90,7 @@ function AdminClients() {
 
     }
 
+    // Set the state for TicketInfo
     const [ticketInfo, setTicketInfo] = useState({
         id: "",
         title: "",
@@ -91,8 +100,8 @@ function AdminClients() {
         clientId: ""
     });
 
-    function getTicketInfo(event, ticket) {
-        // console.log("client clicked from getTicketInfo: ", ticket);
+    // Get Ticket Info when the ticket is clicked and set the ticket state
+    function getTicketInfo(event, ticket) {      
 
         //API Call to get the ticket details for the clicked ticket
         API.getTicket(ticket.id)
@@ -111,8 +120,9 @@ function AdminClients() {
     }
 
 
-    // const [project, setProject] = useState(false);
+    // state definition for creating new form
     const [projectForm, setProjectForm] = useState({
+
         clientId: "",
         clientticket: "",
         title: "",
@@ -123,9 +133,11 @@ function AdminClients() {
         ticket: []
     })
 
-
+    // functionality when new project needs to be created
     function createProjectForm(event, ticket) {
         console.log("create Project Form: ", ticket);
+
+        // clear states of other components that have to be hidden if they happened to be displayed 
         setClientProfile({
             id: "",
             name: "",
@@ -134,6 +146,7 @@ function AdminClients() {
             contact: "",
             clientTickets: []
         });
+
         setTicketInfo({
             id: "",
             title: "",
@@ -143,6 +156,7 @@ function AdminClients() {
             clientId: ""
         });
 
+        // Set the state of the Project Form with the new state
         setProjectForm({
             clientId: ticket.clientId,
             clientCompany: ticket.clientCompany,
@@ -159,12 +173,13 @@ function AdminClients() {
         });
     };
 
+    // handles the Project Form Input change event
     function handleInputChange(event) {
-        // console.log("printing from AdminClients handleInputChange: ", event);
         const { name, value } = event.target;
         setProjectForm({ ...projectForm, [name]: value })
     };
 
+    // handles the Project Form submit event - Adds the Project and updates the ticket status to "in-progress"
     async function handleFormSubmit(event) {
         console.log("printing from Adminclients handleFormSubmit", event);
         event.preventDefault();
@@ -198,7 +213,7 @@ function AdminClients() {
     };
 
 
-
+    // Conditional DOM rendering 
     return (
         <div>
             <NavigationBar />
@@ -207,7 +222,8 @@ function AdminClients() {
                     <Col xs={2} className="navsidebar">
                         <NavSideBar />
                     </Col>
-
+                    
+                    {/* Rendering of all Client users at the time of Load after the Admin Logs in */}
                     {!clients.length ? (
                         <h1 className="text-center">No Clients to Display</h1>
                     ) : (
@@ -241,6 +257,7 @@ function AdminClients() {
                             </Col>
                         )}
 
+                    {/* Rendering of Profile of the particular client when clicked */}
                     {(clientProfile.id !== "") ?
                         (
                             <Col xs={3} lg={3}>
@@ -285,6 +302,7 @@ function AdminClients() {
                         ) : (<></>)
                     }
 
+                    {/* Rendering of Ticket Details */}
                     {(ticketInfo.id !== "") ?
                         (
                             <Col xs={3} lg={3}>
@@ -314,6 +332,8 @@ function AdminClients() {
                             </Col>
                         ) : (<></>)
                     }
+
+                    {/* Rendering of Project Form */}
                     {(projectForm.clientticket !== "") ?
                         (
                             <Col xs={6} lg={6}>
