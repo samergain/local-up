@@ -26,6 +26,7 @@ function App() {
         <Route exact path="/home" component={Home} />
         <Route exact path="/sign-in" component={Login} />
         <Route exact path="/sign-up" component={SignUp} />
+        <Route exact path="/services" component={Services} />
         <Route exact path="/signup/admin" component={SignUpAdmin} />
         <Route exact path="/addrole" component={AddRole} />
         {user && user.roles[0] === "ROLE_CLIENT" && (<Route exact path="/profile" component={Profile} />)}

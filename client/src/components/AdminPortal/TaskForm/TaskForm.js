@@ -1,8 +1,8 @@
 import React from "react";
 import {Input, TextArea, FormBtn} from "../Form";
 
-function ProjectForm(props) {
-    console.log("Printing from ProjectForm", props);
+function TaskForm(props) {
+    // console.log("Printing from TaskForm", props);
 
     return (
         <div>
@@ -21,33 +21,27 @@ function ProjectForm(props) {
                 />
                 <Input
                     onChange={props.handleInputChange}
-                    name="githubRepo"
-                    placeholder="GitHubRepo"
-                    value={props.githubRepo}
-                />
-                <Input
-                    onChange={props.handleInputChange}
                     name="createdBy"
                     placeholder="Created By"
-                    value={props.currentUser}
+                    value={props.createdBy}
                     disabled
                 />
                 <Input
                     onChange={props.handleInputChange}
                     name="status"
                     placeholder="Status"
-                    value="OPEN"
+                    value="open"
                     disabled
                 />
                 <FormBtn
                 disabled={!(props.title && props.description)}
                 onClick={props.handleFormSubmit}
                 >
-                    Submit Project Form
+                    Submit Task Form
                 </FormBtn>
             </form>
         </div>
     )
 }
 
-export default ProjectForm;
+export default TaskForm;
