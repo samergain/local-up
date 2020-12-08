@@ -168,7 +168,7 @@ function AdminClients() {
             description: "",
             githubRepo: "",
             createdBy: "",
-            status: "",
+            status: "in-progress",
             ticket: [ticket.ticketId]
         });
     };
