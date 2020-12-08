@@ -5,7 +5,7 @@ import { Nav } from "react-bootstrap";
 function NavSideBar() {
   return (
     <div>
-      <Nav className="col-md-12 d-none d-md-block bg-default sidebar justify-content-left navbar-color">
+      <Nav className="col-sm-12 d-none d-sm-block bg-default sidebar justify-content-left navbar-color">
         <div className="sidebar-sticky"></div>
         <Nav.Item>
           <Nav.Link href="/profile">Profile</Nav.Link>
