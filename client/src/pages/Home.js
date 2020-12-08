@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../components/HomePortal/NavBar/NavBar";
 import { Container, Row, Col } from "react-bootstrap";
 import smallbusiness from "../images/localbusiness3.jpg";
+import developer from "../images/developers1.jpg";
 
 function Home() {
     return (
@@ -11,10 +12,16 @@ function Home() {
 
                 <div className="blue-container-homepage">
                     <Row className="justify-content-md-center">
-
+                        <Col xs={3} >
+                            <div className="img-card-homepage ">
+                                <div className="text-center">
+                                    <img src={developer} alt="Website Builder" className="mainpage-image" />
+                                </div>
+                            </div>
+                        </Col>
                         
 
-                        <Col xs={7} >
+                        <Col xs={6} >
                             <div className="card homepage-card">
                                 <div className="homepage">
                                     <label><h1>Local UP</h1></label>
@@ -27,8 +34,8 @@ function Home() {
                         </Col>
 
                         <Col xs={3} >
-                            <div className="img-card-homepage ">
-                                <div className="text-center">
+                            <div className="img-card-homepage card-add-style ">
+                                <div>
                                     <img src={smallbusiness} alt="Website Builder" className="mainpage-image" />
                                 </div>
                             </div>

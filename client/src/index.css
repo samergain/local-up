@@ -145,7 +145,7 @@ a:hover {color: #145DA0;}
 .sidebar{
   background-color: #0C2D48 ;
   height: 200vh;
-  width:50%;
+  width:125px;
 }
 
 .blue-container{
@@ -195,4 +195,8 @@ a:hover {color: #145DA0;}
   padding-left: 40px;
   width: 100%;
   height: 100%;
+}
+
+.card-add-style{
+  padding-left: 20px;
 }

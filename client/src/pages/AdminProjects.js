@@ -64,6 +64,13 @@ function AdminProjects() {
                 status: ""
             });
 
+            setTaskDetails({
+                _id: "",
+                title: "",
+                description: "",
+                status: ""
+            });
+
         //Each ticket has only one project - one project has one ticket
 
         let ticketDtl = await API.getTicket(project.tickets[0])
@@ -105,6 +112,16 @@ function AdminProjects() {
             })
             .catch(error => console.log("error getting task details: ", error));
 
+        setTaskForm({
+            projectId: "",
+            ticketId: "",
+            ticketTitle: "",
+            title: "",
+            description: "",
+            createdBy: "",
+            status: ""
+        });
+
         setTaskDetails(taskDetails);
     }
 
@@ -128,7 +145,7 @@ function AdminProjects() {
             description: "",
             status: ""
         })
-  
+
 
         setTaskForm({
             projectId: ticket.projectId,
@@ -185,6 +202,8 @@ function AdminProjects() {
                             ticketTitle: "",
                             ticketStatus: ""
                         });
+
+                        loadProjects();
                     }
                 }
             }
@@ -298,8 +317,8 @@ function AdminProjects() {
                                         <div className="card-header text-center">
                                             <h2>Task ID: {taskDetails._id}</h2>
                                         </div>
-                                        
-                                        <div className="card-body">
+
+                                        <div className="card-body text-center">
                                             <p className="pad-card-info">
                                                 <strong>Title:</strong>{taskDetails.title}<br />
                                                 <strong>Description:</strong>{taskDetails.description}<br />
