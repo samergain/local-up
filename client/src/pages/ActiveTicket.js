@@ -4,7 +4,6 @@ import NavSideBar from "../components/client-portal/NavSideBar";
 import { Col, Container, Row } from "react-bootstrap";
 import AuthService from "../services/auth-service";
 import API from "../utils/API";
-import LightSpeed from "react-reveal/LightSpeed";
 
 function ActiveTicket() {
   const [tickets, setClientTickets] = useState({});
@@ -44,7 +43,7 @@ function ActiveTicket() {
           {!tickets.length ? (
             <h1 className="text-center">You have no tickets to display</h1>
           ) : (
-            <Col xs={3} lg={3}>
+            <Col xs={8} lg={6}>
               {tickets.map((ticketData) => {
                 return (
                   <div className="card">
@@ -52,7 +51,7 @@ function ActiveTicket() {
                       <h2>ID: {ticketData._id}</h2>
                     </div>
                     <p className="pad-card-info">
-                    <strong>Status: </strong> {ticketData.title }
+                    <strong>Title: </strong> {ticketData.title }
                     <br />
                       <strong>Description: </strong>{ticketData.description} <br />
                     </p>
