@@ -8,6 +8,7 @@ const Project = mongoose.model(
     githubRepo: String,
     createdBy: String,
     status: String,
+    created_at : { type: Date, default: Date.now },
     assignedDevs: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"

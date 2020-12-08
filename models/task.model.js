@@ -6,7 +6,8 @@ const Task = mongoose.model(
     title: String,
     description: String,
     createdBy: String,
-    status: String
+    status: String,
+    created_at : { type: Date, default: Date.now }
   })
 );
 

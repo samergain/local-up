@@ -12,14 +12,14 @@ function Services() {
             <NavBar />
             <Container fluid>
 
-                <div className="blue-container">
+                <div className="servicepage-middle-container">
                     <Row className="justify-content-md-center">
                        
                         <Col xs={8} >
-                            <div className="card mainpage-card">
-                                <div className="mainpage">
-                                    <label>Website Building</label>
-                                    <p>
+                            <div className="card service-front-card">
+                                <div className="servicepage">
+                                    <label className="text-color">Website Building</label>
+                                    <p className="text-color">
                                         Lorem ipsum dolor sit amet,
                                         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                 </p>
@@ -27,9 +27,9 @@ function Services() {
                             </div>
                         </Col>
                         <Col xs={2} >
-                            <div className="img-card text-center">
-                                <div className="mainpage">
-                                    <img src={websiteimage} alt="Website Builder" className="mainpage-image" />
+                            <div className="img-card-servicepage text-center">
+                                <div className="servicepage">
+                                    <img src={websiteimage} alt="Website Builder" className="service-image" />
                                 </div>
                             </div>
                         </Col>
@@ -37,21 +37,21 @@ function Services() {
                     </Row>
                 </div>
 
-                <div className="blue-container">
+                <div className="servicepage-middle-container">
                     <Row className="justify-content-md-center">
 
                         <Col xs={3} >
-                            <div className="img-card text-center">
-                                <div className="mainpage">
-                                    <img src={seo} alt="Website Builder" className="mainpage-image" />
+                            <div className="img-card-servicepage text-center">
+                                <div className="servicepage">
+                                    <img src={seo} alt="Website Builder" className="service-image" />
                                 </div>
                             </div>
                         </Col>
                         <Col xs={8} >
-                            <div className="card mainpage-card">
-                                <div className="mainpage">
-                                    <label>SEO (Search Engine Optimization)</label>
-                                    <p>
+                            <div className="card service-front-card">
+                                <div className="servicepage">
+                                    <label className="text-color">SEO (Search Engine Optimization)</label>
+                                    <p className="text-color">
                                         Lorem ipsum dolor sit amet,
                                         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                 </p>
@@ -62,14 +62,14 @@ function Services() {
                     </Row>
                 </div>
 
-                <div className="blue-container">
-                    <Row className="justify-content-md-center">
+                <div className="servicepage-middle-container">
+                    <Row className="justify-content-md-center fluid">
                        
                         <Col xs={8} >
-                            <div className="card mainpage-card">
-                                <div className="mainpage">
-                                    <label>Online Marketing Building</label>
-                                    <p>
+                            <div className="card service-front-card">
+                                <div className="servicepage">
+                                    <label className="text-color" >Online Marketing Building</label>
+                                    <p className="text-color">
                                         Lorem ipsum dolor sit amet,
                                         consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                 </p>
@@ -77,9 +77,9 @@ function Services() {
                             </div>
                         </Col>
                         <Col xs={2} >
-                            <div className="img-card text-center">
-                                <div className="mainpage">
-                                    <img src={onlinemarketing} alt="Website Builder" className="mainpage-image" />
+                            <div className="img-card-servicepage">
+                                <div className="servicepage">
+                                      <img src={onlinemarketing} alt="Website Builder" className="service-image" />
                                 </div>
                             </div>
                         </Col>

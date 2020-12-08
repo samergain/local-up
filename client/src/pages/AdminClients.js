@@ -268,8 +268,8 @@ function AdminClients() {
                                     </div>
                                     <p className="pad-card-info">
                                         <strong>Contact:</strong> {clientProfile.name}<br />
-                                        <strong>Email:</strong>{clientProfile.email}<br />
-                                        <strong>Phone:</strong>{clientProfile.contact}<br />
+                                        <strong>Email:</strong> {clientProfile.email}<br />
+                                        <strong>Phone:</strong> {clientProfile.contact}<br />
                                     </p>
                                     {(clientProfile.tickets.length) ?
                                         (
@@ -312,8 +312,8 @@ function AdminClients() {
                                         <h2>{ticketInfo.title}</h2>
                                     </div>
                                     <p className="pad-card-info">
-                                        <strong>Id:</strong>{ticketInfo.id} <br />
-                                        <strong>Description:</strong>{ticketInfo.description} <br />
+                                        <strong>Id:</strong>  {ticketInfo.id} <br />
+                                        <strong>Description:</strong>  {ticketInfo.description} <br />
                                         <strong>Status:</strong> {ticketInfo.status || "new"} <br />
                                     </p>
                                     <div className="card-body text-center">
@@ -343,9 +343,9 @@ function AdminClients() {
                                         <h2>{projectForm.clientCompany}</h2>
                                     </div>
                                     <p className="pad-card-info">
-                                        <strong>Ticket:</strong>{projectForm.ticketTitle}<br />
-                                        <strong>Ticket Description:</strong>{projectForm.ticketDesc}<br />
-                                        <strong>Ticket Status:</strong>{projectForm.ticketStatus || "new"}<br />
+                                        <strong>Ticket:</strong>  {projectForm.ticketTitle}<br />
+                                        <strong>Ticket Description:</strong>  {projectForm.ticketDesc}<br />
+                                        <strong>Ticket Status:</strong>  {projectForm.ticketStatus || "new"}<br />
                                     </p>
                                     <div className="card-body">
                                         <ProjectForm

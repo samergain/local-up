@@ -5,7 +5,8 @@ const Ticket = mongoose.model(
   new mongoose.Schema({
     title: String,
     description: String,
-    status: String
+    status: String,
+    created_at : { type: Date, default: Date.now }
   })
 );
 

@@ -32,7 +32,8 @@ const User = mongoose.model(
     clientTickets: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Ticket"
-    }]
+    }],
+    created_at : { type: Date, default: Date.now }
   })
 );
 
