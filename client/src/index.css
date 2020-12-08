@@ -200,3 +200,11 @@ a:hover {color: #145DA0;}
 .card-add-style{
   padding-left: 20px;
 }
+
+.localuplogo{
+  padding-top: 10px;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  display: block;
+}
