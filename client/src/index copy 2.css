@@ -23,7 +23,7 @@ div[data-reactroot] {
 }
 body {
   /* background: #1C8EF9 !important; */
-  background: #8F857D !important;
+  background: #2E8BC0 !important;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -97,7 +97,7 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  background-color: #5C5552 !important;
+  background-color: #0C2D48 !important;
 }
 
 /* .navbar-color {
@@ -105,7 +105,7 @@ body, html, .App, #root, .auth-wrapper {
 } */
 
 a {
-  color: #DECBB7;
+  color: #B1D4E0;
 }
 a:hover {color: #145DA0;}
 
@@ -127,18 +127,18 @@ a:hover {color: #145DA0;}
 }
 
 .card{
-  background-color:#DECBB7;
+  background-color:#B1D4E0;
   width: 100%;
   margin-top: 45px;
 }
 
 .card-header{
-  background-color: #DECBB7;
+  background-color: #B1D4E0;
   width: 100%;
 }
 
 .card-body{
-  background-color: #DECBB7;
+  background-color: #B1D4E0;
   width: 100%
 }
 
@@ -148,51 +148,18 @@ a:hover {color: #145DA0;}
   width:50%;
 }
 
-.blue-container{
-  background-color: #0C2D48 ;
-  width: 90%;
-  margin-top: 45px;
-  margin-left: 60px;
-  height: 300px;
-}
-
 /* .navsidebar{
   background-color: #0C2D48 ;
 } */
 
 .mainpage {
-  /* height: 500px; */
-  height: 200px;
-  padding: 30px;
+  height: 500px;
+  padding: 50px;
 }
 .mainpage-card{
   width: 100%
 }
 
-.mainpage-image{
-  width: 250px;
-  height: 250px;
-}
-
 .navbar-bg{
-  background-color: #433633;
-}
-
-.blue-container-homepage{
-  background-color: #0C2D48 ;
-  width: 90%;
-  margin-top: 45px;
-  margin-left: 60px;
-  height: 600px;
-}
-
-.homepage-card{
-  height: 500px;
-}
-
-.img-card-homepage{
-  padding-top: 150px;
-  padding-left: 40px;
-  width: 100%;
-  height: 100%;
+  background-color: #0C2D48;
 }
