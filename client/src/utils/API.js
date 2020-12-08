@@ -1,8 +1,6 @@
 import axios from "axios";
 
 export default {
-
-
   //Users///
   //Get all Users 
   getAllUsers: function() {

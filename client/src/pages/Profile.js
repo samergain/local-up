@@ -41,11 +41,11 @@ function Profile() {
           </Col>
           {user.id !== "" ? (
             <Col xs={3} lg={3}>
-              <div className="card-deck">
+              <div className="card">
                 <div className="card-header mr-auto">
-                  <h2>{user.company}</h2>
+                <h2>{user.company}</h2>
                 </div>
-                <p>
+                <p className="pad-card-info">
                   <strong>Name: </strong> {user.name}
                   <br />
                   <strong>Email: </strong>
@@ -55,7 +55,6 @@ function Profile() {
                   {user.contact}
                   <br />
                 </p>
-                <hr />
               </div>
             </Col>
           ) : (
