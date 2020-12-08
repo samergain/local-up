@@ -31,13 +31,10 @@ class AuthService {
     localStorage.removeItem("user");
   }
 
-  register(username, email, password, ...args) {
-    let name = args[0];
-    let company = args[1];
-    let contact = args[2];
-    let github = args[3];
-    let skills = args[4];
-    let roles = args[5];
+  register(username, email, password, name, company, contact, roles) {
+    
+    
+    console.log("auth-service roles passed: ", roles);
     return axios.post(API_URL + "signup", {
       username,
       email,
@@ -45,11 +42,14 @@ class AuthService {
       name,
       company,
       contact,
-      github,
-      skills,
       roles
     })
-    .then(response => alert(response.data.message));
+    .then(response => 
+      {
+        console.log("response from auth-service:", response);
+        alert(response.data.message);
+      }
+      );
   }
 
   getCurrentUser() {

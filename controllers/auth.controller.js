@@ -7,16 +7,15 @@ var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
+  console.log("auth.controller line 10: req.body:", req.body)
+  
   const user = new User({
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
     name: req.body.name,
     company: req.body.company,
-    contact: req.body.contact,
-    github: req.body.github,
-    skills: req.body.skills,
-    roles: req.body.roles
+    contact: req.body.contact
   });
 
   user.save((err, user) => {
@@ -24,8 +23,9 @@ exports.signup = (req, res) => {
       res.status(500).send({ message: err });
       return;
     }
-
-    if (req.body.roles) {
+    console.log("auth.controller user ", user);
+    console.log("auth.controller line 28: req.body.roles", req.body.roles);
+    if (req.body.roles === "admin") {
       Role.find(
         {
           name: { $in: req.body.roles }
@@ -43,7 +43,7 @@ exports.signup = (req, res) => {
               return;
             }
 
-            res.send({ message: "User was registered successfully!" });
+            res.send({ message: "Admin was registered successfully!" });
           });
         }
       );

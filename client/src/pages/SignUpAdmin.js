@@ -33,10 +33,11 @@ function SignUpAdmin() {
     function handleSubmit(event) {
         event.preventDefault();
         
-        let rolesArray = [roles];
-        console.log("roles is:", rolesArray);
+        console.log("roles is:", roles); //["admin"]
+        const company = "";
+        const contact = "";
         if (username && email && password && roles) {
-            AuthService.register(username, email, password, name, roles)
+            AuthService.register(username, email, password, name, company, contact, roles)
                 .then(
                     () => {  window.location.href = "/sign-in"; }
                 )
