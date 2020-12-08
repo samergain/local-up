@@ -267,9 +267,9 @@ function AdminProjects() {
                                             <h2>{projectDetails.title}</h2>
                                         </div>
                                         <p className="pad-card-info">
-                                            <strong>Id:</strong>{projectDetails.id} <br />
-                                            <strong>Description:</strong>{projectDetails.description} <br />
-                                            <strong>Status:</strong> {projectDetails.status || "new"}<br />
+                                            <strong>Id:</strong>  {projectDetails.id} <br />
+                                            <strong>Description:</strong>  {projectDetails.description} <br />
+                                            <strong>Status:</strong>  {projectDetails.status || "new"}<br />
                                         </p>
                                         <div className="card-body text-center">
                                             <h4><u>Ticket:</u></h4>
@@ -316,14 +316,14 @@ function AdminProjects() {
                                 <LightSpeed left>
                                     <div className="card">
                                         <div className="card-header text-center">
-                                            <h2>Task ID: {taskDetails._id}</h2>
+                                            <h2>{taskDetails.title}</h2>
                                         </div>
 
                                         <div className="card-body text-center">
                                             <p className="pad-card-info">
-                                                <strong>Title:</strong>{taskDetails.title}<br />
-                                                <strong>Description:</strong>{taskDetails.description}<br />
-                                                <strong>Status:</strong>{taskDetails.status}<br />
+                                                <strong>Task ID: </strong>{taskDetails._id}<br />
+                                                <strong>Description:</strong>  {taskDetails.description}<br />
+                                                <strong>Status:</strong>  {taskDetails.status}<br />
                                             </p>
                                             <button className="btn btn-primary mb-3 btn-size"> ASSIGN DEV</button>
                                         </div>
@@ -341,7 +341,7 @@ function AdminProjects() {
                                             <h2>{taskForm.ticketTitle}</h2>
                                         </div>
                                         <p className="pad-card-info">
-                                            <strong>Ticket Id:</strong>{taskForm.ticketId}<br />
+                                            <strong>Ticket Id:</strong>  {taskForm.ticketId}<br />
                                         </p>
                                         <div className="card-body">
                                             <TaskForm

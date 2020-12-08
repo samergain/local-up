@@ -23,7 +23,7 @@ div[data-reactroot] {
 }
 body {
   /* background: #1C8EF9 !important; */
-  background: #F4976C !important;
+  background: #8F857D !important;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -97,7 +97,7 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  background-color: #303C6C !important;
+  background-color: #5C5552 !important;
 }
 
 /* .navbar-color {
@@ -105,7 +105,7 @@ body, html, .App, #root, .auth-wrapper {
 } */
 
 a {
-  color: #D2FDFF;
+  color: #DECBB7;
 }
 a:hover {color: #145DA0;}
 
@@ -127,18 +127,18 @@ a:hover {color: #145DA0;}
 }
 
 .card{
-  background-color:#D2FDFF;
+  background-color:#DECBB7;
   width: 100%;
   margin-top: 45px;
 }
 
 .card-header{
-  background-color: #D2FDFF;
+  background-color: #DECBB7;
   width: 100%;
 }
 
 .card-body{
-  background-color: #D2FDFF;
+  background-color: #DECBB7;
   width: 100%
 }
 
@@ -148,50 +148,38 @@ a:hover {color: #145DA0;}
   width:125px;
 }
 
-.servicepage-middle-container{
-  background-color: #D2FDFF ;
+.blue-container{
+  background-color: #0C2D48 ;
   width: 90%;
   margin-top: 45px;
   margin-left: 60px;
   height: 300px;
-}
-.servicepage{
-  padding: 20px;
 }
 
 /* .navsidebar{
   background-color: #0C2D48 ;
 } */
 
-.service-front-card{
-  width: 100%;
-  background-color:#303C6C;
+.mainpage {
+  /* height: 500px; */
+  height: 200px;
+  padding: 30px;
+}
+.mainpage-card{
+  width: 100%
 }
 
-.img-card-servicepage{
-  /* padding-top: 150px;
-  padding-left: 40px; */
-  width: 100%;
-  height: 100%;
-}
-
-
-.signup-card{
-  width: 100%;
-  background-color:#303C6C;
-}
-
-.service-image{
+.mainpage-image{
   width: 250px;
   height: 250px;
 }
 
 .navbar-bg{
-  background-color: #303C6C;
+  background-color: #433633;
 }
 
-.middle-container-homepage{
-  background-color: #D2FDFF ;
+.blue-container-homepage{
+  background-color: #0C2D48 ;
   width: 90%;
   margin-top: 45px;
   margin-left: 60px;
@@ -201,12 +189,6 @@ a:hover {color: #145DA0;}
 .homepage-card{
   padding: 50px;
   height: 500px;
-  background-color: #303C6C;
-}
-
-.homepage-image{
-  width: 250px;
-  height: 250px;
 }
 
 .img-card-homepage{
@@ -218,19 +200,4 @@ a:hover {color: #145DA0;}
 
 .card-add-style{
   padding-left: 20px;
-}
-
-/* .navbar-bg{
-  background-color: #303C6C!important ;
-} */
-
-.text-color{
-  color: white;
-}
-.localuplogo{
-  padding-top: 10px;
-  width: 10%;
-  height: 10%;
-  margin: auto;
-  display: block;
 }

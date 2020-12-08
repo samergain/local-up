@@ -8,7 +8,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 function NavBar() {
 
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar  bg="dark" variant="dark" expand="lg">
             <Navbar.Brand href="/"><h3>Local UP</h3></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

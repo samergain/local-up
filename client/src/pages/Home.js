@@ -10,12 +10,12 @@ function Home() {
             <NavBar />
             <Container fluid>
 
-                <div className="blue-container-homepage">
+                <div className="middle-container-homepage">
                     <Row className="justify-content-md-center">
                         <Col xs={3} >
                             <div className="img-card-homepage ">
                                 <div className="text-center">
-                                    <img src={developer} alt="Website Builder" className="mainpage-image" />
+                                    <img src={developer} alt="Website Builder" className="homepage-image" />
                                 </div>
                             </div>
                         </Col>
@@ -24,10 +24,11 @@ function Home() {
                         <Col xs={6} >
                             <div className="card homepage-card">
                                 <div className="homepage">
-                                    <label><h1>Local UP</h1></label>
-                                    <p>
-                                        Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    <label><h1 className="text-color">Local UP</h1></label>
+                                    <p className="text-color">
+                                    Our organization helps small and local businesses with marketing, search engine optimization (SEO), and technical services such as setting up a website. 
+                                    The goal of our organization is to give small local businesses a cost-effective way to market their services. Our overall mission is to give local businesses low-cost marketing solutions. 
+                                    As well as establish them an e-commerce presence by creating them a website where they can sell their goods online.
                                     </p>
                                 </div>
                             </div>
@@ -36,7 +37,7 @@ function Home() {
                         <Col xs={3} >
                             <div className="img-card-homepage card-add-style ">
                                 <div>
-                                    <img src={smallbusiness} alt="Website Builder" className="mainpage-image" />
+                                    <img src={smallbusiness} alt="Website Builder" className="homepage-image" />
                                 </div>
                             </div>
                         </Col>
