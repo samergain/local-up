@@ -14,7 +14,6 @@ import API from "../utils/API";
 function AdminProjects() {
 
     let currentUser = AuthService.getCurrentUser();
-    console.log("currentUser: ", currentUser.username);
 
     const [projects, setProjects] = useState({
         _id: "",
@@ -33,7 +32,6 @@ function AdminProjects() {
     function loadProjects() {
         API.getProject()
             .then(res => {
-                console.log("API CALL Returned - res.data: ", res.data)
                 setProjects(res.data);
             })
             .catch(err => console.log(err));
@@ -54,20 +52,28 @@ function AdminProjects() {
 
 
     async function displayProjDetails(event, project) {
-
         event.preventDefault();
+        setTaskForm(
+            {
+                projectId: "",
+                ticketId: "",
+                ticketTitle: "",
+                title: "",
+                description: "",
+                createdBy: "",
+                status: ""
+            });
 
         //Each ticket has only one project - one project has one ticket
 
         let ticketDtl = await API.getTicket(project.tickets[0])
             .then(res => {
-                // console.log("ticket response: ", res)
                 return res.data;
 
             })
             .catch(error => console.log("error getting ticket details: ", error));
 
-
+        console.log("display proj details function: ", project.tasks);
         setProjectDetails({
             id: project.id,
             title: project.title,
@@ -119,42 +125,50 @@ function AdminProjects() {
     };
 
     function handleInputChange(event) {
-        // console.log("printing from AdminClients handleInputChange: ", event);
         const { name, value } = event.target;
         setTaskForm({ ...taskForm, [name]: value })
     };
 
     async function handleFormSubmit(event) {
-        console.log("printing from AdminProjects handleFormSubmit", event);
-        event.preventDefault();
 
+        event.preventDefault();
         try {
             if (taskForm.title && taskForm.description) {
-                
-                console.log("createdBy: ", taskForm.createdBy);
                 const response = await API.createTask({
                     title: taskForm.title,
                     description: taskForm.description,
                     createdBy: currentUser.username,
-                    status: taskForm.status
+                    status: "open"
                 });
                 // console.log("Project saved response data : ", response.data);
                 if (response.status === 200) {
                     alert("Task Added Successfully: ", response);
-                    // const responseTicket = await API.addTaskToProject(taskForm.projectId, {taskForm._id});
-                    // if (responseTicket.status === 200){
-                    //     console.log("ticket status updated: ", responseTicket);
-                    //     setTaskForm(
-                    //         {clientId: "",
-                    //         clientticket: "",
-                    //         title: "",
-                    //         description: "",
-                    //         githubRepo: "",
-                    //         createdBy: "",
-                    //         status: "",
-                    //         ticket: []
-                    //         });
-                    // }
+                    const responseProject = await API.addTaskToProject(projectDetails.id, response.data._id);
+                    if (responseProject.status === 200) {
+                        console.log("Task added to Project successfully: ", responseProject);
+                        setTaskForm(
+                            {
+                                projectId: "",
+                                ticketId: "",
+                                ticketTitle: "",
+                                title: "",
+                                description: "",
+                                createdBy: "",
+                                status: ""
+                            });
+                        setProjectDetails({
+                            id: "",
+                            title: "",
+                            description: "",
+                            githubrepo: "",
+                            status: "",
+                            tasks: [],
+                            tickets: [],
+                            ticketDec: "",
+                            ticketTitle: "",
+                            ticketStatus: ""
+                        });
+                    }
                 }
             }
         } catch (error) {
@@ -178,31 +192,31 @@ function AdminProjects() {
                     ) : (
                             <Col xs={3} lg={3}>
                                 <LightSpeed left>
-                                <div className="card text-center">
-                                    <div className="card-header text-center">
-                                        <h2>List of Projects</h2>
-                                    </div>
-                                    <ProjectCard
-                                    >
-                                        <div className="card-body">
-                                            {projects.map(project => {
-                                                return (<ProjectCardBody
-                                                    id={project._id}
-                                                    // key={project._id}
-                                                    title={project.title}
-                                                    description={project.description}
-                                                    githubrepo={project.githubRepo}
-                                                    status={project.status}
-                                                    tasks={project.tasks}
-                                                    tickets={project.ticket}
-                                                    project={project}
-                                                    clickFunction={displayProjDetails}
-                                                />
-                                                );
-                                            })}
+                                    <div className="card text-center">
+                                        <div className="card-header text-center">
+                                            <h2>List of Projects</h2>
                                         </div>
-                                    </ProjectCard>
-                                </div>
+                                        <ProjectCard
+                                        >
+                                            <div className="card-body">
+                                                {projects.map(project => {
+                                                    return (<ProjectCardBody
+                                                        id={project._id}
+                                                        // key={project._id}
+                                                        title={project.title}
+                                                        description={project.description}
+                                                        githubrepo={project.githubRepo}
+                                                        status={project.status}
+                                                        tasks={project.tasks}
+                                                        tickets={project.ticket}
+                                                        project={project}
+                                                        clickFunction={displayProjDetails}
+                                                    />
+                                                    );
+                                                })}
+                                            </div>
+                                        </ProjectCard>
+                                    </div>
                                 </LightSpeed>
                             </Col>
                         )}
@@ -211,50 +225,50 @@ function AdminProjects() {
                         (
                             <Col xs={3} lg={3}>
                                 <LightSpeed left>
-                                <div className="card">
-                                    <div className="card-header text-center">
-                                        <h2>{projectDetails.title}</h2>
-                                    </div>
-                                    <p className="pad-card-info">
-                                        <strong>Id:</strong>{projectDetails.id} <br />
-                                        <strong>Description:</strong>{projectDetails.description} <br />
-                                        <strong>Status:</strong> {projectDetails.status || "new"}<br />
-                                    </p>
-                                    <div className="card-body text-center">
-                                        <h4><u>Ticket:</u></h4>
-                                        {(projectDetails.tickets.length)
-                                            ? (projectDetails.tickets.map(ticket => (
-                                                <ProjectTicketList
-                                                    id={ticket}
-                                                    ticket={ticket}
-                                                    // key={ticket.id}
-                                                    projectId={projectDetails.id}
-                                                    projectTitle={projectDetails.title}
-                                                    ticketTitle={projectDetails.ticketTitle}
-                                                    ticketDesc={projectDetails.ticketDesc}
-                                                    ticketStatus={projectDetails.ticketStatus}
-                                                    clickFunction={createTaskForm}
-                                                />
-                                            )))
-                                            : (<h6>No Tickets</h6>)
-                                        }
-                                        <h4><u>Tasks:</u></h4>
-                                        {(projectDetails.tasks.length)
-                                            ? (
-                                                projectDetails.tasks.map(task => (
-                                                    <ProjectTaskList
-                                                        id={task.id}
-                                                        ticket={task}
-                                                        // key={task.id}
+                                    <div className="card">
+                                        <div className="card-header text-center">
+                                            <h2>{projectDetails.title}</h2>
+                                        </div>
+                                        <p className="pad-card-info">
+                                            <strong>Id:</strong>{projectDetails.id} <br />
+                                            <strong>Description:</strong>{projectDetails.description} <br />
+                                            <strong>Status:</strong> {projectDetails.status || "new"}<br />
+                                        </p>
+                                        <div className="card-body text-center">
+                                            <h4><u>Ticket:</u></h4>
+                                            {(projectDetails.tickets.length)
+                                                ? (projectDetails.tickets.map(ticket => (
+                                                    <ProjectTicketList
+                                                        id={ticket}
+                                                        ticket={ticket}
+                                                        // key={ticket.id}
                                                         projectId={projectDetails.id}
                                                         projectTitle={projectDetails.title}
-                                                        clickFunction={displayTaskDetails}
+                                                        ticketTitle={projectDetails.ticketTitle}
+                                                        ticketDesc={projectDetails.ticketDesc}
+                                                        ticketStatus={projectDetails.ticketStatus}
+                                                        clickFunction={createTaskForm}
                                                     />
                                                 )))
-                                            : (<h6>No Tasks</h6>)
-                                        }
+                                                : (<h6>No Tickets</h6>)
+                                            }
+                                            <h4><u>Tasks:</u></h4>
+                                            {(projectDetails.tasks.length)
+                                                ? (
+                                                    projectDetails.tasks.map(task => (
+                                                        <ProjectTaskList
+                                                            id={task}
+                                                            task={task}
+                                                            // key={task.id}
+                                                            projectId={projectDetails.id}
+                                                            projectTitle={projectDetails.title}
+                                                            clickFunction={displayTaskDetails}
+                                                        />
+                                                    )))
+                                                : (<h6>No Tasks</h6>)
+                                            }
+                                        </div>
                                     </div>
-                                </div>
                                 </LightSpeed>
                             </Col>
                         ) : (<></>)

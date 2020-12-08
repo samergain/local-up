@@ -2,7 +2,7 @@ import React from "react";
 import {Input, TextArea, FormBtn} from "../Form";
 
 function TaskForm(props) {
-    console.log("Printing from TaskForm", props);
+    // console.log("Printing from TaskForm", props);
 
     return (
         <div>
@@ -30,7 +30,8 @@ function TaskForm(props) {
                     onChange={props.handleInputChange}
                     name="status"
                     placeholder="Status"
-                    value={props.status}
+                    value="open"
+                    disabled
                 />
                 <FormBtn
                 disabled={!(props.title && props.description)}

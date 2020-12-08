@@ -2,7 +2,7 @@ import React from "react";
 
 function ProjectTicketList(props){
 
-    console.log("Printing from ProjectTicketList.", props);
+    // console.log("Printing from ProjectTicketList.", props);
     return (
         <div>
             <div className="text-left">
