@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const ticketController = require("../../controllers/ticket.controller");
-
+ 
 // Matches with "/api/ticket"
 router.route("/")
   .get(ticketController.findAll)

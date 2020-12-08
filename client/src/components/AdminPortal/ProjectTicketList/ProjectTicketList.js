@@ -1,18 +1,18 @@
 import React from "react";
 
-function TicketList(props){
+function ProjectTicketList(props){
 
-    // console.log("Printing from TicketList.", props);
+    console.log("Printing from TicketList.", props);
     return (
         <div>
             <button className="btn btn-primary mb-3 btn-size"
             onClick={(e, ticket=props) => props.clickFunction(e, ticket)}
             >
-            {props.ticket}
+            {props.id}
 
             </button>
         </div>
     )
 }
 
-export default TicketList;
+export default ProjectTicketList;
