@@ -35,7 +35,6 @@ export default {
   ///////Projects////////
   //Gets all the projects with their tasks and ticket
   getProject : function() {
-      console.log("Printing from API.js");
       return axios.get("/api/project");
   },
   //update project: add a created task to it

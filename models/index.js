@@ -19,6 +19,7 @@ db.role = require("./role.model");
 db.ROLES = ["client", "admin", "developer"];
 db.Project = require("./project.model");
 db.Ticket = require("./ticket.model");
+db.Task = require("./task.model");
 db.Blog = require("./blog.model");
 
 module.exports = db;

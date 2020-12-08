@@ -3,10 +3,10 @@ const db = require("../models");
 module.exports = {
   // findAll: function(req, res) {
   //   console.log("printing from findall project controller: " , req);
-  //   db.project
+  //   db.Project
   //     .find(req.query)
   //     .populate("tasks")
-  //     .populate("ticket")
+  //     .populate("tickets")
   //     .then(dbModel => res.json(dbModel))
   //     .catch(err => res.status(422).json(err));
   // },
