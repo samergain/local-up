@@ -73,8 +73,8 @@ function AdminProjects() {
             })
             .catch(error => console.log("error getting ticket details: ", error));
 
-        console.log("display proj details function: ", project.tasks);
-        setProjectDetails({
+        console.log("display proj details - getting task function: ", project.tasks);
+        await setProjectDetails({
             id: project.id,
             title: project.title,
             description: project.description,
@@ -89,14 +89,23 @@ function AdminProjects() {
 
     }
 
-    function displayTaskDetails(event, task) {
-        console.log("display Task Details: ", task);
-        // const taskDetails = project.tasks.map((task) => {
-        //     API.getTaskById(task)
-        //         .then(res => console.log("task response: ", res))
-        //         .catch(error => console.log("error getting task details: ", error));
-        // })
+    const [taskDetails, setTaskDetails] = useState({
+        _id: "",
+        title: "",
+        description: "",
+        status: ""
+    });
 
+
+    async function displayTaskDetails(event, task) {
+        const taskDetails = await API.getTaskById(task.id)
+            .then(res => {
+                console.log("task response from API for particular ID: ", res.data);
+                return res.data;
+            })
+            .catch(error => console.log("error getting task details: ", error));
+
+        setTaskDetails(taskDetails);
     }
 
     const [taskForm, setTaskForm] = useState({
@@ -112,6 +121,14 @@ function AdminProjects() {
 
     function createTaskForm(event, ticket) {
         event.preventDefault();
+
+        setTaskDetails({
+            _id: "",
+            title: "",
+            description: "",
+            status: ""
+        })
+  
 
         setTaskForm({
             projectId: ticket.projectId,
@@ -267,6 +284,28 @@ function AdminProjects() {
                                                     )))
                                                 : (<h6>No Tasks</h6>)
                                             }
+                                        </div>
+                                    </div>
+                                </LightSpeed>
+                            </Col>
+                        ) : (<></>)
+                    }
+                    {(taskDetails._id !== "") ?
+                        (
+                            <Col xs={3} lg={3}>
+                                <LightSpeed left>
+                                    <div className="card">
+                                        <div className="card-header text-center">
+                                            <h2>Task ID: {taskDetails._id}</h2>
+                                        </div>
+                                        
+                                        <div className="card-body">
+                                            <p className="pad-card-info">
+                                                <strong>Title:</strong>{taskDetails.title}<br />
+                                                <strong>Description:</strong>{taskDetails.description}<br />
+                                                <strong>Status:</strong>{taskDetails.status}<br />
+                                            </p>
+                                            <button className="btn btn-primary mb-3 btn-size"> ASSIGN DEV</button>
                                         </div>
                                     </div>
                                 </LightSpeed>
