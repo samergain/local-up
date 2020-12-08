@@ -4,6 +4,7 @@ import NavSideBar from "../components/client-portal/NavSideBar";
 import { Col, Container, Row } from "react-bootstrap";
 import AuthService from "../services/auth-service";
 import API from "../utils/API";
+import Logo from "../images/localup-logo.png";
 
 function Profile() {
   const [user, setUser] = useState({});
@@ -40,12 +41,12 @@ function Profile() {
             <NavSideBar />
           </Col>
           {user.id !== "" ? (
-            <Col xs={3} lg={3}>
-              <div className="card-deck">
+            <Col xs={8} lg={6}>
+              <div className="card">
                 <div className="card-header mr-auto">
                   <h2>{user.company}</h2>
                 </div>
-                <p>
+                <p className="pad-card-info">
                   <strong>Name: </strong> {user.name}
                   <br />
                   <strong>Email: </strong>
@@ -55,8 +56,10 @@ function Profile() {
                   {user.contact}
                   <br />
                 </p>
-                <hr />
               </div>
+              <div>
+            <img src={Logo} alt="LocalUP" className="localuplogo"/>
+          </div>
             </Col>
           ) : (
             <> </>

@@ -25,6 +25,10 @@ function CreateTicket() {
             console.log("ticketID is:", ticketId);
           const addTicket = await API.addTicketToClient(currentUser.id,ticketId)
             console.log(addTicket);
+            if (addTicket.status === 200) {
+              alert("The ticket/issue has been created.");
+            }
+            
         }
     } catch (error) {
       console.log(error)
