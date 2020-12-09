@@ -4,8 +4,12 @@
   box-sizing: border-box;
 }
 body {
-  /* background: #1C8EF9 !important; */
-  background: #F4976C !important;
+  /* background: #F4976C !important; */
+  /* https://www.openbusinesscouncil.org/wp-content/uploads/2019/08/small-business-shops-ss-1920.jpg */
+  /* background-image: url("https://content.fortune.com/wp-content/uploads/2020/07/GettyImages-872624980.jpg?resize=750,500"); */
+  background-image: url("https://content.fortune.com/wp-content/uploads/2020/07/GettyImages-872624980.jpg?resize=750,500");
+    /* background-image: linear-gradient(to bottom right, #F4976C, #303C6C); */
+  background-size: 100%;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -110,18 +114,19 @@ a:hover {color: #F4976C;}
 }
 
 .card{
+  /* background-color:#D2FDFF; */
   background-color:#D2FDFF;
   width: 100%;
   margin-top: 45px;
 }
 
 .card-header{
-  background-color: #D2FDFF;
+  background-color:#D2FDFF;
   width: 100%;
 }
 
 .card-body{
-  background-color: #D2FDFF;
+  background-color:#D2FDFF;
   width: 100%
 }
 
@@ -132,7 +137,8 @@ a:hover {color: #F4976C;}
 }
 
 .servicepage-middle-container{
-  background-color: #D2FDFF ;
+  /* background-color: #D2FDFF ; */
+  background-color: #F4976C ;
   width: 90%;
   margin-top: 45px;
   margin-left: 60px;
@@ -176,7 +182,7 @@ a:hover {color: #F4976C;}
 }
 
 .middle-container-homepage{
-  background-color: #D2FDFF ;
+  background-color: #F4976C ;
   width: 90%;
   margin-top: 45px;
   margin-left: 60px;

@@ -18,10 +18,16 @@ export default {
     return axios.put("/api/user/clientTicket/" + userId , {id: ticketId})
   },
 
-  //Get ticket by Id.
+  // Get ticket by Id.
+  // getTicket : async function(id) {
+  //   const data = await axios.get("/api/ticket/" + id);
+  //   return data;
+  // },
+
   getTicket : function(id) {
     return axios.get("/api/ticket/" + id);
   },
+ 
   
   //////Tickets//////
   // create ticket
