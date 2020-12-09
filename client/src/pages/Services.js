@@ -74,7 +74,7 @@ function Services() {
                                     <label className="text-color" >e-Marketing:</label>
                                     <p className="text-color">
                                         eMarketing includes Search Engine Marketing, Social Media Marketing, Content Marketing, Web Analytics. The goal of all those services: More Visibility, More Customers, More Sales.
-                                        Our team can do all that for you and show you how to do it yourself as a professional.
+                                        Our team can do all that for you and show you how to do it yourself as a professional. Small business owners can now check the turnover rate or ‘’action taken’’. Digital Marketing can have very detailed reports about its performance (clicks, visits, orders, video views). Most importantly, it tells us how much sales the business has made as a result of e-marketing.
                                 </p>
                                 </div>
                             </div>
