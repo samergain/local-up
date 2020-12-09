@@ -22,6 +22,7 @@ function AdminProjects() {
         description: "",
         githubRepo: "",
         status: "",
+        created_at:"",
         tasks: [],
         ticket: []
     });
@@ -218,7 +219,7 @@ function AdminProjects() {
     return (
         <div>
             <NavigationBar />
-            <Container fluid>
+            {/* <Container fluid> */}
                 <Row className="show-grid no-gutter">
                     <Col xs={2} className="navsidebar">
                         <NavSideBar />
@@ -362,7 +363,7 @@ function AdminProjects() {
                         ) : (<></>)
                     }
                 </Row>
-            </Container>
+            {/* </Container> */}
         </div >
     )
 }

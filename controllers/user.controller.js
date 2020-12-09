@@ -23,7 +23,7 @@ const db = require("../models");
 
 //returns all users with "client" role, and their tickets
 exports.findAllClients = (req, res) => {
-      console.log("finallclients req: , req");
+      console.log("finallclients req: ", req);
       db.user.find()
              .populate("clientTickets","-__v")
              .populate("roles")
@@ -48,6 +48,7 @@ exports.updateClientTickets = (req, res) => {
             .catch(err => console.log(err));
                   //res.status(422).json(err));
 };
+
 
 
 

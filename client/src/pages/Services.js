@@ -1,9 +1,9 @@
 import React from "react";
 import NavBar from "../components/HomePortal/NavBar/NavBar";
 import { Container, Row, Col } from "react-bootstrap";
-import websiteimage from "../images/website4.jpg";
-import seo from "../images/SEO2.jpg";
-import onlinemarketing from "../images/online_marketing.jpg";
+import websiteimage from "../images/website5.jpg";
+import seo from "../images/SEO5.jpg";
+import onlinemarketing from "../images/online_marketing3.jpg";
 
 
 function Services() {
@@ -14,14 +14,15 @@ function Services() {
 
                 <div className="servicepage-middle-container">
                     <Row className="justify-content-md-center">
-                       
+
                         <Col xs={8} >
                             <div className="card service-front-card">
                                 <div className="servicepage">
-                                    <label className="text-color">Website Building</label>
+                                    <label className="text-color">Building Websites:</label>
                                     <p className="text-color">
-                                        Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                                        By creating a website, you’re building an online presence. Whether you’re making a basic website with contact information for your small business, creating a full system for receiving/delivering orders, having a website will help you share who you are and what you do with the right audience.
+                                        LocalUP can help you pick the right solution for you, the right template/theme, and give you full support until you are comfortable managing it yourself.
                                 </p>
                                 </div>
                             </div>
@@ -50,10 +51,12 @@ function Services() {
                         <Col xs={8} >
                             <div className="card service-front-card">
                                 <div className="servicepage">
-                                    <label className="text-color">SEO (Search Engine Optimization)</label>
+                                    <label className="text-color">Be Visible on the Web (SEO):</label>
                                     <p className="text-color">
-                                        Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                                        Most internet users begin their session by searching for something—that something is a need. People use the internet to fulfill their need for information, whether it’s settling a bet on who the 14th president was (Franklin Pierce, by the way) or finding a local restaurant, perfect piece of clothing, or the ideal contractor for a home remodel.
+                                        Search engine optimization (SEO) is the process of helping your customers connect with your business online.
+                                        Our team uses modern SEO services, backed by the best digital practices, to increase your traffic & rankings for vetted keywords and long-tail phrases that drive business to your site.
                                 </p>
                                 </div>
                             </div>
@@ -64,14 +67,14 @@ function Services() {
 
                 <div className="servicepage-middle-container">
                     <Row className="justify-content-md-center fluid">
-                       
+
                         <Col xs={8} >
                             <div className="card service-front-card">
                                 <div className="servicepage">
-                                    <label className="text-color" >Online Marketing Building</label>
+                                    <label className="text-color" >e-Marketing:</label>
                                     <p className="text-color">
-                                        Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        eMarketing includes Search Engine Marketing, Social Media Marketing, Content Marketing, Web Analytics. The goal of all those services: More Visibility, More Customers, More Sales.
+                                        Our team can do all that for you and show you how to do it yourself as a professional.
                                 </p>
                                 </div>
                             </div>
@@ -79,7 +82,7 @@ function Services() {
                         <Col xs={2} >
                             <div className="img-card-servicepage">
                                 <div className="servicepage">
-                                      <img src={onlinemarketing} alt="Website Builder" className="service-image" />
+                                    <img src={onlinemarketing} alt="Website Builder" className="service-image" />
                                 </div>
                             </div>
                         </Col>

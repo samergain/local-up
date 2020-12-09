@@ -12,6 +12,7 @@ export default {
   getClients: function() {
     return axios.get("/api/user/clients");
   },
+
   //update a client with a new ticket
   addTicketToClient: function(userId, ticketId) {
     return axios.put("/api/user/clientTicket/" + userId , {id: ticketId})

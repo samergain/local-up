@@ -4,7 +4,7 @@ import NavSideBar from "../components/client-portal/NavSideBar";
 import { Col, Container, Row } from "react-bootstrap";
 import AuthService from "../services/auth-service";
 import API from "../utils/API";
-import Logo from "../images/localup-logo.png";
+
 
 function Profile() {
   const [user, setUser] = useState({});
@@ -35,7 +35,7 @@ function Profile() {
   return (
     <div>
       <NavBar />
-      <Container fluid>
+      {/* <Container fluid> */}
         <Row>
           <Col xs={3}>
             <NavSideBar />
@@ -57,15 +57,13 @@ function Profile() {
                   <br />
                 </p>
               </div>
-              <div>
-            <img src={Logo} alt="LocalUP" className="localuplogo"/>
-          </div>
+              
             </Col>
           ) : (
             <> </>
           )}
         </Row>
-      </Container>
+      {/* </Container> */}
     </div>
   );
 }
