@@ -10,6 +10,7 @@ function ProjectTicketList(props){
             <strong>Title:</strong>{props.ticketTitle}<br/>
             <strong>Status:</strong>{props.ticketStatus}<br/>
             </div>
+            <hr/>
             <button className="btn btn-primary mb-3 btn-size"
             onClick={(e, ticket=props) => props.clickFunction(e, ticket)}
             >

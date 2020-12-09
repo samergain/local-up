@@ -26,6 +26,8 @@ module.exports = function(app) {
   app.get("/api/user/users", controller.findAllUsers);
   
   
+  
+  
   /////////protecting resources on server side/////////
   // app.use(function(req, res, next) {
   //   res.header(

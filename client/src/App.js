@@ -14,10 +14,12 @@ import AuthService from "./services/auth-service";
 ////temporary////
 import SignUpAdmin from "./pages/SignUpAdmin";
 import AddRole from "./pages/Roles";
+import Footer from "./pages/Footer";
 
 function App() {
   const user = AuthService.getCurrentUser();
   return (
+    <>
     <Router>
       <div>
         <Switch>
@@ -46,6 +48,8 @@ function App() {
         </Switch>
       </div>
     </Router>
+    <Footer />
+    </>
   )}
 
 export default App;

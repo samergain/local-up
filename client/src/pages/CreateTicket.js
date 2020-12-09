@@ -8,7 +8,10 @@ import AuthService from "../services/auth-service";
 function CreateTicket() {
   const currentUser = AuthService.getCurrentUser();
   
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({
+    title: "",
+    description:""
+  });
   const handleInputChange = function(e) {
       const {name, value} = e.target;
       console.log("here is the value of: ", value)
@@ -25,8 +28,10 @@ function CreateTicket() {
             console.log("ticketID is:", ticketId);
           const addTicket = await API.addTicketToClient(currentUser.id,ticketId)
             console.log(addTicket);
+        
             if (addTicket.status === 200) {
-              alert("The ticket/issue has been created.");
+              alert("The ticket/issue has been created. Someone will contact you soon!");
+              window.location.href="/active-tickets"
             }
             
         }
@@ -38,7 +43,7 @@ function CreateTicket() {
   return (
     <div>
       <NavBar />
-      <Container fluid>
+      {/* <Container fluid> */}
         <Row>
           <Col xs={2}>
             <NavSideBar />
@@ -68,7 +73,7 @@ function CreateTicket() {
           </div>
           </Col>
         </Row>
-      </Container>
+      {/* </Container> */}
     </div>
   );
 }

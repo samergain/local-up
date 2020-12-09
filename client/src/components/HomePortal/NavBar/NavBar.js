@@ -1,6 +1,7 @@
 import React from "react";
 import "./NavBar.css";
 import { Nav, Navbar } from 'react-bootstrap';
+import Logo from "../../../images/localuplogo1.png";
 
 
 
@@ -8,8 +9,10 @@ import { Nav, Navbar } from 'react-bootstrap';
 function NavBar() {
 
     return (
-        <Navbar  bg="dark" variant="dark" expand="lg">
-            <Navbar.Brand href="/"><h3>Local UP</h3></Navbar.Brand>
+        <Navbar  className="navbar-bg" bg="dark" variant="dark" expand="lg">
+            <Navbar.Brand href="/"><img src={Logo} alt="LocalUP" className="localuplogo"/></Navbar.Brand>
+
+
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
@@ -24,3 +27,5 @@ function NavBar() {
 }
 
 export default NavBar;
+
+

@@ -35,7 +35,7 @@ function ActiveTicket() {
   return (
     <div>
       <NavBar />
-      <Container fluid>
+      {/* <Container fluid> */}
         <Row>
           <Col xs={2}>
             <NavSideBar />
@@ -48,12 +48,12 @@ function ActiveTicket() {
                 return (
                   <div className="card">
                     <div className="card-header mr-auto">
-                      <h2>ID: {ticketData._id}</h2>
+                      <h2>{ticketData.title }</h2>
                     </div>
                     <p className="pad-card-info">
-                    <strong>Title: </strong> {ticketData.title }
+                    <strong>ID: </strong> {ticketData._id}
                     <br />
-                      <strong>Description: </strong>{ticketData.description} <br />
+                      <strong>Description: </strong>  {ticketData.description} <br />
                     </p>
                   </div>
                 );
@@ -61,7 +61,7 @@ function ActiveTicket() {
             </Col>
           )}
         </Row>
-      </Container>
+      {/* </Container> */}
     </div>
   );
 }
