@@ -1,16 +1,18 @@
 # Local-Up
-## Contact Information
-NA
+## Links
+Application URL : https://localup.herokuapp.com
+
+Github Repositroy : https://github.com/meenaambalam/local-up
 ## Description
 This is a mern stack application with a frontend fully linked with the backend. We use Mongo for storing our client data and admin data. The client once signed into their client portal can create a ticket and see their active tickets. On the admin side the admin can convert those non-technical tickets to projects for the future developers the developers will eventually be able to be assigned these projects from within the future developer portal. 
 
 The other technologies used to make this app happen were JWT authentication, react, React-Reveal, axios, and bootstrap. JWT uses react router and axios to which allowed us to seperate website functionality so the clients see the front stage if you will and the admin has seperate access to the backstage. React is the core tecknology that we used through reacts virtual dom we do not have to reload the entire page anymore. We just reload components as needed. Lightspeed is just a react library that provides cool animations. Axios is for the the frontend api calls to the backend node server. We used bootstrap for our css framework we installed it directly in the public index.html so we would not have to import it each time we used it. 
 ## Table of Contents 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Contributing](#contributing)
-* [Tests](#tests)
-* [Final](#finalThoughts)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Contributing](#Contributing)
+* [Screenshots](#Screenshots)
+* [Final-Thoughts](#Final-Thoughts)
 
 ## Installation
 To install necessary dependencies, run the following command:
@@ -27,12 +29,6 @@ The team behind this app:
   * [Ravi Knutson](https://github.com/Knuts839)
   * [Samer Saadoun](https://github.com/samergain)
 
-## Tests
-To run tests, run the following command:
-```
-npm test
-```
-
 ## Screenshots
 <ins>Initial Page Load Screenshot:</ins>
 
@@ -46,13 +42,10 @@ npm test
 
 ![Screen #1](./client/src/images/Clients_and_Tickets_from_adminpage.PNG)
 
-## finalThoughts 
+## Final-Thoughts 
 The Developer portal is a big add along with the ability to chat with an agent.
 
-## URL
-Application URL : https://localup.herokuapp.com
 
-Github Repositroy : https://github.com/meenaambalam/local-up
 
 
 
