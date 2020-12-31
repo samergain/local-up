@@ -4,15 +4,21 @@ Application URL : https://localup.herokuapp.com
 
 Github Repositroy : https://github.com/meenaambalam/local-up
 ## Description
-This is a mern stack application with a frontend fully linked with the backend. We use Mongo for storing our client data and admin data. The client once signed into their client portal can create a ticket and see their active tickets. On the admin side the admin can convert those non-technical tickets to projects for the future developers the developers will eventually be able to be assigned these projects from within the future developer portal. 
+Local-UP is a MERN app designed to be a project management system that will help fresh devs to work together on building websites and other e-services for local businesses.  
+The app is built with Nodejs, mongoDB, express, JWT, Bcrypt in the backend. Mainly React on the front-end.  
+There are 3 portals. 
+- Clients dashboard  
+- Admins dashboard  
+- Developers dashboard (under development)
 
-The other technologies used to make this app happen were JWT authentication, react, React-Reveal, axios, and bootstrap. JWT uses react router and axios to which allowed us to seperate website functionality so the clients see the front stage if you will and the admin has seperate access to the backstage. React is the core tecknology that we used through reacts virtual dom we do not have to reload the entire page anymore. We just reload components as needed. Lightspeed is just a react library that provides cool animations. Axios is for the the frontend api calls to the backend node server. We used bootstrap for our css framework we installed it directly in the public index.html so we would not have to import it each time we used it. 
+The client can create a ticket(request of service) after signing up. The ticket appears in the Admins dashboard, from which the admin can create a project and assign developers to work on it. The project contains "tickets", which are the building blocks for the project.
+
 ## Table of Contents 
 * [Installation](#Installation)
 * [Usage](#Usage)
 * [Contributing](#Contributing)
 * [Screenshots](#Screenshots)
-* [Final-Thoughts](#Final-Thoughts)
+* [Future Developments](#Future Developments)
 
 ## Installation
 To install necessary dependencies, run the following command:
@@ -42,8 +48,8 @@ The team behind this app:
 
 ![Screen #1](./client/src/images/Clients_and_Tickets_from_adminpage.PNG)
 
-## Final-Thoughts 
-The Developer portal is a big add along with the ability to chat with an agent.
+## Future Developments: 
+The project is still under development. The next step is building the 'Developers Portal' and 'Live Chat' service for the clients.
 
 
 
