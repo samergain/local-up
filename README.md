@@ -36,15 +36,15 @@ The team behind this app:
   * [Samer Saadoun](https://github.com/samergain)
 
 ## Screenshots
-<ins>Initial Page Load Screenshot:</ins>
+<ins>Home Page:</ins>
 
 ![Screen #1](./client/src/images/homepage.PNG)
 
-<ins>Client Page functionality Screenshot - Active Tickets:</ins>
+<ins>Client Portal:</ins>
 
 ![Screen #1](./client/src/images/active_tickets_from_clientpage.PNG)
 
-<ins>Admin Page Client Information Screenshot:</ins>
+<ins>Admin Portal:</ins>
 
 ![Screen #1](./client/src/images/Clients_and_Tickets_from_adminpage.PNG)
 
