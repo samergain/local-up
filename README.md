@@ -18,7 +18,7 @@ The client can create a ticket(request of service) after signing up. The ticket 
 * [Usage](#Usage)
 * [Contributing](#Contributing)
 * [Screenshots](#Screenshots)
-* [Future Developments](#Future Developments)
+* [Future-Developments](#Future-Developments)
 
 ## Installation
 To install necessary dependencies, run the following command:
@@ -48,7 +48,7 @@ The team behind this app:
 
 ![Screen #1](./client/src/images/Clients_and_Tickets_from_adminpage.PNG)
 
-## Future Developments: 
+## Future-Developments: 
 The project is still under development. The next step is building the 'Developers Portal' and 'Live Chat' service for the clients.
 
 
