@@ -30,10 +30,10 @@ You will need node.js, be able to init the project using npm init, and then inst
 
 ## Contributing
 The team behind this app:
-  * [Meena Ambalam](https://github.com/meenaambalam)
-  * [Jeff Thao](https://github.com/JeffThao)
-  * [Ravi Knutson](https://github.com/Knuts839)
-  * [Samer Saadoun](https://github.com/samergain)
+  * [Meena Ambalam](https://github.com/meenaambalam) Front-end / Admins Portal  
+  * [Jeff Thao](https://github.com/JeffThao) Front-end / Clients Portal  
+  * [Ravi Knutson](https://github.com/Knuts839) Front-end / Home page
+  * [Samer Saadoun](https://github.com/samergain) / Backend
 
 ## Screenshots
 <ins>Home Page:</ins>
