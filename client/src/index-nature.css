@@ -1,0 +1,203 @@
+/*  Meena's CSS
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+#root > div,
+div[data-reactroot] {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-image: url("https://st2.depositphotos.com/1570716/7868/i/450/depositphotos_78687302-Black-wood-texture-background-old-panels.jpg");
+
+  max-height: 100%;
+  height: 100vh;
+} Meena's CSS */
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+* {
+  box-sizing: border-box;
+}
+body {
+  /* background: #1C8EF9 !important; */
+  background: #659DBD !important;
+  min-height: 100vh;
+  display: flex;
+  font-weight: 400;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,label,span {
+  font-weight: 500;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+body, html, .App, #root, .auth-wrapper {
+
+  width: 100%;
+  height: 100%;
+}
+
+/* .navbar-light {
+  background-color: #ffffff;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+.home, .service{
+  width: 70%;
+  height: 50%;
+} */
+
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+}
+
+.auth-inner {
+  width: 450px;
+  margin: auto;
+  background: #3f3a3a;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  padding: 40px 55px 45px 55px;
+  border-radius: 15px;
+  transition: all .3s;
+}
+
+.auth-wrapper .form-control:focus {
+  border-color: #167bff;
+  box-shadow: none;
+}
+
+.auth-wrapper h3 {
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+  padding-bottom: 20px;
+}
+
+.custom-control-label {
+  font-weight: 400;
+}
+
+.forgot-password,
+.forgot-password a {
+  text-align: right;
+  font-size: 13px;
+  padding-top: 10px;
+  color: white;
+  margin: 0;
+}
+
+.forgot-password a {
+  color: #003060;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #5C5552 !important;
+}
+
+/* .navbar-color {
+  color: black;
+} */
+
+a {
+  color: #DECBB7;
+}
+a:hover {color: #145DA0;}
+
+/* .row > div {
+  background: lightgrey;
+  border: 1px solid;
+} */
+
+.btn-signup, .btn-login{
+  width:25%;
+}
+
+.btn-size {
+  width: 75%;
+}
+
+.pad-card-info{
+  padding: 15px;
+}
+
+.card{
+  background-color:#DAAD86;
+  width: 100%;
+  margin-top: 45px;
+}
+
+.card-header{
+  background-color: #DAAD86;
+  width: 100%;
+}
+
+.card-body{
+  background-color: #DAAD86;
+  width: 100%
+}
+
+.sidebar{
+  background-color: #0C2D48 ;
+  height: 200vh;
+  width:125px;
+}
+
+.blue-container{
+  background-color: #DAAD86 ;
+  width: 90%;
+  margin-top: 45px;
+  margin-left: 60px;
+  height: 300px;
+}
+
+/* .navsidebar{
+  background-color: #0C2D48 ;
+} */
+
+.mainpage {
+  /* height: 500px; */
+  height: 200px;
+  padding: 30px;
+}
+.mainpage-card{
+  width: 100%
+}
+
+.mainpage-image{
+  width: 250px;
+  height: 250px;
+}
+
+.navbar-bg{
+  background-color: #433633;
+}
+
+.blue-container-homepage{
+  background-color: #FBEEC1 ;
+  width: 90%;
+  margin-top: 45px;
+  margin-left: 60px;
+  height: 600px;
+}
+
+.homepage-card{
+  padding: 50px;
+  height: 500px;
+}
+
+.img-card-homepage{
+  padding-top: 150px;
+  padding-left: 40px;
+  width: 100%;
+  height: 100%;
+}
+
+.card-add-style{
+  padding-left: 20px;
+}
