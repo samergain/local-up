@@ -12,15 +12,6 @@ function Home() {
 
                 <div className="middle-container-homepage">
                     <Row className="justify-content-md-center">
-                        <Col xs={3} >
-                            <div className="img-card-homepage ">
-                                <div className="text-center">
-                                    <img src={developer} alt="Website Builder" className="homepage-image" />
-                                </div>
-                            </div>
-                        </Col>
-                        
-
                         <Col xs={6} >
                             <div className="card homepage-card">
                                 <div className="homepage">
@@ -30,14 +21,6 @@ function Home() {
                                     The goal of our organization is to give small local businesses a cost-effective way to market their services. Our overall mission is to give local businesses low-cost marketing solutions. 
                                     As well as establish them an e-commerce presence by creating them a website where they can sell their goods online.
                                     </p>
-                                </div>
-                            </div>
-                        </Col>
-
-                        <Col xs={3} >
-                            <div className="img-card-homepage card-add-style ">
-                                <div>
-                                    <img src={smallbusiness} alt="Website Builder" className="homepage-image" />
                                 </div>
                             </div>
                         </Col>
