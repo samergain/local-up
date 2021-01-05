@@ -43,8 +43,6 @@ function App() {
         {/* Meena's Routes */}
         {user && user.roles[0] === "ROLE_ADMIN" && (<Route exact path="/clients" component={Clients} />)}
         {user && user.roles[0] === "ROLE_ADMIN" && (<Route exact path="/projects" component={Projects} />)}
-        
-        
         </Switch>
       </div>
     </Router>
