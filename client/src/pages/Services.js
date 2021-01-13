@@ -1,8 +1,8 @@
 import React from "react";
 import NavBar from "../components/HomePortal/NavBar/NavBar";
 import { Container, Row, Col } from "react-bootstrap";
-import websiteimage from "../images/website5.jpg";
-import seo from "../images/SEO5.jpg";
+import websiteimage from "../images/website4.jpg";
+import seo from "../images/SEO2.jpg";
 import onlinemarketing from "../images/online_marketing3.jpg";
 
 

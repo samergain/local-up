@@ -25,9 +25,9 @@ function Login() {
                         if (user.roles[0] === "ROLE_CLIENT") {
                             window.location.href = "/profile";                      
                         }
-                        //   else if (user.roles[0]==="ROLE_DEVELOPER") {
-                        //     window.location.href = "/";
-                        //   }
+                        else if (user.roles[0]==="ROLE_DEVELOPER") {
+                            window.location.href = "/";
+                        }
                         else if (user.roles[0] === "ROLE_ADMIN") {
                             window.location.href = "/clients";
                         }
@@ -48,8 +48,6 @@ function Login() {
                     <p></p>
                 </Row>
                 <Row className="justify-content-md-center">
-                    {/* <Col xs={4}>
-                    </Col> */}
                     <Col xs={4}>
                         <div className="card">
                             <form>
@@ -76,9 +74,6 @@ function Login() {
                                     </div>
 
                                     <button onClick={handleLoginSubmit} type="submit" className="btn btn-primary btn-login">Submit</button>
-                                    {/* <p className="forgot-password text-right">
-                                Forgot <a href="#">password?</a>
-                            </p> */}
                                 </div>
                             </form>
                         </div>
