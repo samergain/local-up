@@ -1,8 +1,16 @@
 # Local-Up
 ## Links
 Application URL : https://localup.herokuapp.com
+Github Repositroy : https://github.com/meenaambalam/local-up  
 
-Github Repositroy : https://github.com/meenaambalam/local-up
+## Login Accounts
+#### Admin  
+username: samerss
+password: 12345678  
+#### Client  
+username: client1
+password: 12345678  
+
 ## Description
 Local-UP is a MERN app designed to be a project management system that will help fresh devs to work together on building websites and other e-services for local businesses.  
 The app is built with Nodejs, mongoDB, express, JWT, Bcrypt in the backend. Mainly React on the front-end.  
