@@ -5,10 +5,10 @@ Github Repositroy : https://github.com/meenaambalam/local-up
 
 ## Login Accounts
 #### Admin  
-username: samerss
+username: samerss  
 password: 12345678  
 #### Client  
-username: client1
+username: client1  
 password: 12345678  
 
 ## Description
